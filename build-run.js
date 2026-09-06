@@ -4,6 +4,36 @@ const { layout } = require("./build.js");
 
 const DIST = path.join(__dirname, "dist");
 const SRC = path.join(__dirname, "src");
+const MAINTENANCE_FLAG = path.join(__dirname, "MAINTENANCE");
+const MAINTENANCE_SRC = path.join(__dirname, "maintenance.html");
+
+// ============================================================
+// MODE MAINTENANCE
+// Si un fichier "MAINTENANCE" existe à la racine du projet, on
+// publie uniquement la page de maintenance (maintenance.html) au
+// lieu de reconstruire tout le site. Pour l'activer :
+//   - créez un fichier vide nommé MAINTENANCE à la racine, committez, poussez
+// Pour revenir au site complet :
+//   - supprimez ce fichier MAINTENANCE, committez, poussez
+// ============================================================
+if (fs.existsSync(MAINTENANCE_FLAG)) {
+  console.log("⚠️  Mode MAINTENANCE actif — publication de la page de maintenance uniquement.");
+  fs.rmSync(DIST, { recursive: true, force: true });
+  fs.mkdirSync(DIST, { recursive: true });
+  fs.mkdirSync(path.join(DIST, "assets", "img"), { recursive: true });
+
+  const maintenanceHtml = fs.readFileSync(MAINTENANCE_SRC, "utf8");
+  fs.writeFileSync(path.join(DIST, "index.html"), maintenanceHtml);
+  fs.copyFileSync(
+    path.join(SRC, "assets", "img", "favicon.svg"),
+    path.join(DIST, "assets", "img", "favicon.svg")
+  );
+  fs.writeFileSync(path.join(DIST, "_redirects"), "/*  /index.html  200\n");
+  fs.writeFileSync(path.join(DIST, "robots.txt"), "User-agent: *\nDisallow: /\n");
+
+  console.log("✓ Page de maintenance publiée -> dist/");
+  process.exit(0);
+}
 
 const PAGES = [
   {

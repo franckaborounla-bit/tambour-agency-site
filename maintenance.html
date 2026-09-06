@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tambour Agency — Nouveau site en préparation</title>
+<meta name="description" content="Tambour Agency prépare une nouvelle expérience. Communication 360°, organisation événementielle et ingénierie IA — de retour très bientôt." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --orange:#E45327; --gold:#F5A423; --white:#FFFFFF; --ink:#17130f; --grey:#a89e93;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0; background:var(--ink); color:var(--white);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100svh; overflow:hidden; position:relative;
+  }
+  .bg{ position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(55% 70% at 85% 15%, rgba(245,164,35,.30), transparent 60%),
+      radial-gradient(55% 70% at 10% 90%, rgba(228,83,39,.30), transparent 60%);
+  }
+  .rings{ position:absolute; inset:0; z-index:0; display:flex; align-items:center; justify-content:center; }
+  .ring{ position:absolute; border-radius:50%; border:1px solid rgba(245,164,35,.25); animation:pulse 3.6s ease-out infinite; }
+  .ring:nth-child(2){ animation-delay:1.2s; } .ring:nth-child(3){ animation-delay:2.4s; }
+  @keyframes pulse{
+    0%{ width:80px; height:80px; opacity:.7; }
+    100%{ width:900px; height:900px; opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){ .ring{ animation:none; display:none; } }
+
+  .wrap{ position:relative; z-index:1; max-width:640px; margin:0 auto; padding:32px; text-align:center; }
+  .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; background:linear-gradient(120deg,var(--orange),var(--gold)); margin-bottom:22px; animation:blink 2.2s ease-in-out infinite; }
+  @keyframes blink{ 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(1.8); opacity:.5;} }
+  .brand{ font-family:"Fraunces",Georgia,serif; font-weight:700; font-size:clamp(1.6rem,3vw + 1rem,2.4rem); letter-spacing:.02em; margin:0 0 8px; }
+  .tagline{ font-size:.8rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    background:linear-gradient(120deg,var(--orange),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:36px; }
+  h1{ font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw + 1rem,3.2rem); line-height:1.15; margin:0 0 20px; }
+  p{ color:rgba(255,255,255,.66); font-size:1.05rem; line-height:1.7; max-width:46ch; margin:0 auto 36px; }
+  .contact{ display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:100px; border:1px solid rgba(255,255,255,.25); color:var(--white); text-decoration:none; font-weight:600; font-size:.92rem; transition:.3s; }
+  .contact:hover{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.4); }
+  footer{ position:relative; z-index:1; position:fixed; bottom:26px; left:0; right:0; text-align:center; font-size:.75rem; color:rgba(255,255,255,.4); letter-spacing:.04em; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="wrap">
+    <span class="dot"></span>
+    <div class="brand">TAMBOUR AGENCY</div>
+    <div class="tagline">Communication 360° · Événementiel · Ingénierie IA</div>
+    <h1>Un nouveau rythme se prépare.</h1>
+    <p>Nous travaillons actuellement sur notre nouvelle expérience en ligne. Tambour Agency sera de retour très bientôt — en attendant, contactez-nous directement.</p>
+    <a class="contact" href="mailto:contact@tambouragency.com">contact@tambouragency.com</a>
+  </div>
+  <footer>© 2026 Tambour Agency</footer>
+</body>
+</html>
