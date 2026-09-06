@@ -1,0 +1,175 @@
+module.exports = function () {
+  return `
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Ingénierie IA</b></div>
+      <h1>L'intelligence artificielle mise au service de votre performance.</h1>
+      <p class="lede">Conseil, intégration de solutions IA et automatisation des processus — et un pôle formation pour faire monter en compétence vos équipes.</p>
+      <div class="hero-actions">
+        <a href="/contact.html" class="btn btn-primary">Demander un devis</a>
+        <a href="#formation" class="btn btn-outline">Voir les formations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== A. BLOC INFORMATION / OFFRE IA ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Notre expertise</p>
+        <h2>Un accompagnement de bout en bout</h2>
+      </div>
+      <div class="grid-3">
+        ${[
+          ["Conseil en transformation IA", "Diagnostic de maturité, feuille de route et priorisation des cas d'usage à plus fort impact."],
+          ["Intégration de solutions IA", "Déploiement d'outils et de modèles adaptés à vos processus métier existants."],
+          ["Automatisation de processus", "Automatisation des tâches répétitives et des flux de travail, avec ou sans code."],
+          ["Agents IA & chatbots", "Conception d'assistants conversationnels sur-mesure pour vos clients ou vos équipes."],
+          ["Data & analytics", "Structuration de la donnée et tableaux de bord pour éclairer la décision."],
+          ["Accompagnement au changement", "Sensibilisation des équipes et adoption durable des nouveaux outils."],
+        ]
+          .map(
+            ([t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i % 3}" style="min-height:220px"><h3>${t}</h3><p>${d}</p></div>`
+          )
+          .join("\n")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-head split" data-reveal>
+        <div><p class="eyebrow">Cas d'usage</p><h2>Des projets IA concrets</h2></div>
+        <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
+      </div>
+      <div class="grid-3">
+        <div class="work-card" data-reveal><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Automatisation</span><h3>Projet Exemple — Automatisation d'un service client</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Agent IA</span><h3>Projet Exemple — Chatbot interne RH</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph"></div><div class="work-info"><span class="work-tag">Data</span><h3>Projet Exemple — Tableau de bord décisionnel</h3></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== B. SECTION FORMATION ===================== -->
+  <section class="section" id="formation">
+    <div class="container">
+      <div class="formation-section" data-reveal>
+        <p class="eyebrow" style="color:var(--gold)">Se former à l'IA et au digital</p>
+        <h2>Formez-vous à l'IA et au digital avec Tambour Agency</h2>
+        <p class="lede" style="max-width:60ch">Que vous soyez un particulier curieux ou une entreprise souhaitant faire monter ses équipes en compétence, nous proposons des parcours de formation adaptés à votre niveau et à vos objectifs — en individuel ou en plénière.</p>
+
+        <div class="formation-modes">
+          <div class="mode-card">
+            <span class="mode-badge">Formation individuelle</span>
+            <h3>Coaching personnalisé, 1 à 1</h3>
+            <p>Un accompagnement sur-mesure, en présentiel ou en ligne, calé sur votre rythme et vos objectifs spécifiques.</p>
+          </div>
+          <div class="mode-card">
+            <span class="mode-badge">Formation en plénière / groupe</span>
+            <h3>Pour équipes, entreprises et institutions</h3>
+            <p>Des sessions collectives en présentiel ou en ligne, conçues pour faire progresser tout un groupe sur un même socle de compétences.</p>
+          </div>
+        </div>
+
+        <h3 style="color:#fff; margin-bottom:18px">Thématiques proposées</h3>
+        <div class="topics-grid">
+          ${[
+            "Introduction à l'intelligence artificielle",
+            "IA générative appliquée (texte, image, vidéo)",
+            "Prompt engineering",
+            "Automatisation no-code / low-code",
+            "Chatbots & agents IA pour l'entreprise",
+            "Data & analytics pour décideurs",
+            "Transformation digitale & stratégie IA",
+            "Réseaux sociaux & outils digitaux",
+          ]
+            .map((t) => `<div class="topic-chip">${t}</div>`)
+            .join("\n")}
+        </div>
+        <p class="form-note" style="margin-bottom:36px">Liste de thématiques indicative — à préciser avec l'équipe Tambour Agency selon vos besoins.</p>
+
+        <div class="formation-form">
+          <h3>Demander une formation</h3>
+          <p style="margin-bottom:26px">Remplissez ce formulaire, nous revenons vers vous sous 48h ouvrées pour construire le parcours adapté.</p>
+
+          <form data-form>
+            <div class="form-grid">
+              <div class="field"><label for="f-name">Nom et prénom *</label><input id="f-name" name="name" type="text" required /></div>
+              <div class="field"><label for="f-org">Entreprise / organisation <small>(optionnel)</small></label><input id="f-org" name="org" type="text" /></div>
+              <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" required /></div>
+              <div class="field"><label for="f-phone">Téléphone</label><input id="f-phone" name="phone" type="tel" /></div>
+            </div>
+
+            <div class="field full">
+              <label>Type de formation souhaité *</label>
+              <div class="radio-group">
+                <label class="radio-pill"><input type="radio" name="type" value="individuelle" checked /><span>Individuelle</span></label>
+                <label class="radio-pill"><input type="radio" name="type" value="groupe" /><span>Groupe / plénière</span></label>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="f-topic">Thématique d'intérêt *</label>
+                <select id="f-topic" name="topic" required>
+                  <option value="">Sélectionner une thématique</option>
+                  <option>Introduction à l'intelligence artificielle</option>
+                  <option>IA générative appliquée (texte, image, vidéo)</option>
+                  <option>Prompt engineering</option>
+                  <option>Automatisation no-code / low-code</option>
+                  <option>Chatbots &amp; agents IA pour l'entreprise</option>
+                  <option>Data &amp; analytics pour décideurs</option>
+                  <option>Transformation digitale &amp; stratégie IA</option>
+                  <option>Réseaux sociaux &amp; outils digitaux</option>
+                  <option>Autre / à définir ensemble</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-format">Format souhaité *</label>
+                <select id="f-format" name="format" required>
+                  <option value="">Sélectionner un format</option>
+                  <option>Présentiel</option>
+                  <option>En ligne</option>
+                  <option>Indifférent</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field"><label for="f-participants">Nombre de participants estimé <small>(si groupe)</small></label><input id="f-participants" name="participants" type="number" min="1" /></div>
+              <div class="field"><label for="f-dispo">Disponibilités souhaitées</label><input id="f-dispo" name="dispo" type="text" placeholder="Ex. semaines du..." /></div>
+            </div>
+
+            <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Précisez votre besoin, votre niveau actuel, vos objectifs..."></textarea></div>
+
+            <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande de formation</button>
+            <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté(e) par l'équipe Tambour Agency. Voir notre <a href="/mentions-legales.html#confidentialite" style="color:var(--orange)">politique de confidentialité</a>.</p>
+          </form>
+
+          <div class="form-success">
+            <svg width="56" height="56" viewBox="0 0 24 24"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E45327"/><stop offset="1" stop-color="#F5A423"/></linearGradient></defs>${require("../../build.js").ICONS.check}</svg>
+            <h3>Merci, votre demande a bien été envoyée !</h3>
+            <p>Notre équipe formation revient vers vous sous 48h ouvrées pour construire votre parcours.</p>
+          </div>
+        </div>
+
+        <p class="form-note" style="margin-top:26px">Vous préférez réserver directement un créneau pour une formation individuelle ? <a href="/contact.html" style="color:var(--gold)">Contactez-nous</a> pour recevoir un lien de prise de rendez-vous.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Ils se sont formés</p>
+        <h2>Retours de nos participants</h2>
+      </div>
+      <div class="testi-track">
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="2"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+      </div>
+    </div>
+  </section>
+  `;
+};
