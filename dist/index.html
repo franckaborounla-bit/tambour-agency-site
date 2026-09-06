@@ -1,240 +1,65 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tambour Agency — Communication 360°, Événementiel & Ingénierie IA</title>
-  <meta name="description" content="Tambour Agency accompagne les marques en communication 360°, organisation événementielle et ingénierie IA. Découvrez nos expertises et nos formations IA." />
-  <link rel="canonical" href="https://www.tambouragency.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Tambour Agency" />
-  <meta property="og:title" content="Tambour Agency — Communication 360°, Événementiel & Ingénierie IA" />
-  <meta property="og:description" content="Tambour Agency accompagne les marques en communication 360°, organisation événementielle et ingénierie IA. Découvrez nos expertises et nos formations IA." />
-  <meta property="og:image" content="https://www.tambouragency.com/assets/img/og-cover.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tambour Agency — Nouveau site en préparation</title>
+<meta name="description" content="Tambour Agency prépare une nouvelle expérience. Communication 360°, organisation événementielle et ingénierie IA — de retour très bientôt." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --orange:#E45327; --gold:#F5A423; --white:#FFFFFF; --ink:#17130f; --grey:#a89e93;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0; background:var(--ink); color:var(--white);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100svh; overflow:hidden; position:relative;
+  }
+  .bg{ position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(55% 70% at 85% 15%, rgba(245,164,35,.30), transparent 60%),
+      radial-gradient(55% 70% at 10% 90%, rgba(228,83,39,.30), transparent 60%);
+  }
+  .rings{ position:absolute; inset:0; z-index:0; display:flex; align-items:center; justify-content:center; }
+  .ring{ position:absolute; border-radius:50%; border:1px solid rgba(245,164,35,.25); animation:pulse 3.6s ease-out infinite; }
+  .ring:nth-child(2){ animation-delay:1.2s; } .ring:nth-child(3){ animation-delay:2.4s; }
+  @keyframes pulse{
+    0%{ width:80px; height:80px; opacity:.7; }
+    100%{ width:900px; height:900px; opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){ .ring{ animation:none; display:none; } }
+
+  .wrap{ position:relative; z-index:1; max-width:640px; margin:0 auto; padding:32px; text-align:center; }
+  .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; background:linear-gradient(120deg,var(--orange),var(--gold)); margin-bottom:22px; animation:blink 2.2s ease-in-out infinite; }
+  @keyframes blink{ 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(1.8); opacity:.5;} }
+  .brand{ font-family:"Fraunces",Georgia,serif; font-weight:700; font-size:clamp(1.6rem,3vw + 1rem,2.4rem); letter-spacing:.02em; margin:0 0 8px; }
+  .tagline{ font-size:.8rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    background:linear-gradient(120deg,var(--orange),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:36px; }
+  h1{ font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw + 1rem,3.2rem); line-height:1.15; margin:0 0 20px; }
+  p{ color:rgba(255,255,255,.66); font-size:1.05rem; line-height:1.7; max-width:46ch; margin:0 auto 36px; }
+  .contact{ display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:100px; border:1px solid rgba(255,255,255,.25); color:var(--white); text-decoration:none; font-weight:600; font-size:.92rem; transition:.3s; }
+  .contact:hover{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.4); }
+  footer{ position:relative; z-index:1; position:fixed; bottom:26px; left:0; right:0; text-align:center; font-size:.75rem; color:rgba(255,255,255,.4); letter-spacing:.04em; }
+</style>
 </head>
-<body class="page-dark">
-  <a class="skip-link" href="#main">Aller au contenu</a>
-  <header class="site-header">
-    <div class="container">
-      <a href="/index.html" class="logo" aria-label="Tambour Agency — Accueil">
-        <span class="dot"></span> TAMBOUR&nbsp;AGENCY
-      </a>
-      <nav class="nav-links" aria-label="Navigation principale">
-        <a href="/index.html" class="nav-link active">Accueil</a>
-        <a href="/agence.html" class="nav-link">L'Agence</a>
-        <a href="/communication.html" class="nav-link">Communication 360°</a>
-        <a href="/evenementiel.html" class="nav-link">Événementiel</a>
-        <a href="/ingenierie-ia.html" class="nav-link">Ingénierie IA</a>
-        <a href="/realisations.html" class="nav-link">Réalisations</a>
-        <a href="/actualites.html" class="nav-link">Actualités</a>
-        <a href="/contact.html" class="btn btn-primary nav-cta" style="display:none" data-mobile-cta>Démarrer un projet</a>
-      </nav>
-      <div class="header-actions">
-        <a href="/contact.html" class="btn btn-primary nav-cta">Démarrer un projet</a>
-        <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span></button>
-      </div>
-    </div>
-  </header>
-  <main id="main">
-  
-  <section class="hero">
-    <div class="hero-canvas-wrap"><canvas id="heroCanvas"></canvas></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-tag">
-        <span>Communication 360°</span>
-        <span>Organisation événementielle</span>
-        <span>Ingénierie IA</span>
-      </div>
-      <h1>Donner du rythme aux marques qui veulent marquer les esprits.</h1>
-      <p class="lede">Tambour Agency accompagne marques et institutions sur trois terrains — la communication, l'événementiel et l'intelligence artificielle — avec une seule exigence : la précision de l'impact.</p>
-      <div class="hero-actions">
-        <a href="/contact.html" class="btn btn-primary">Démarrer un projet</a>
-        <a href="/agence.html" class="btn btn-outline">Découvrir l'agence</a>
-      </div>
-    </div>
-    <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Notre triptyque</p>
-        <h2>Trois expertises, une seule méthode</h2>
-        <p class="lede">Derrière chaque pôle, la même discipline : comprendre, concevoir, exécuter avec exigence — pour un résultat qui se voit, s'entend et se mesure.</p>
-      </div>
-      <div class="poles">
-        <a href="/communication.html" class="pole-card" data-reveal>
-          <span class="pole-num">01</span>
-          <div class="pole-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11v2a2 2 0 0 0 2 2h2l4 4V5L7 9H5a2 2 0 0 0-2 2Z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.5 6a8 8 0 0 1 0 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-          <h3>Communication 360°</h3>
-          <p>Stratégie de marque, création de contenus, identité visuelle, réseaux sociaux, production audiovisuelle et relations publiques.</p>
-          <span class="pole-link">Découvrir le pôle →</span>
-        </a>
-        <a href="/evenementiel.html" class="pole-card" data-reveal data-reveal-delay="1">
-          <span class="pole-num">02</span>
-          <div class="pole-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17" stroke="currentColor" stroke-width="1.6"/><path d="M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8.2" cy="14.2" r="1.1" fill="currentColor"/><circle cx="12" cy="14.2" r="1.1" fill="currentColor"/><circle cx="15.8" cy="14.2" r="1.1" fill="currentColor"/></svg></div>
-          <h3>Organisation événementielle</h3>
-          <p>Conception et production d'événements corporate, lancements de produits, séminaires et conférences, de l'idée à la régie technique.</p>
-          <span class="pole-link">Découvrir le pôle →</span>
-        </a>
-        <a href="/ingenierie-ia.html" class="pole-card" data-reveal data-reveal-delay="2">
-          <span class="pole-num">03</span>
-          <div class="pole-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="7" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 17.5l2 2M19.5 4.5l-2 2M6.5 17.5l-2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
-          <h3>Ingénierie IA</h3>
-          <p>Conseil, intégration de solutions d'intelligence artificielle, automatisation des processus — et un pôle formation dédié.</p>
-          <span class="pole-link">Découvrir le pôle →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark">
-    <div class="container">
-      <div class="stats">
-        <div class="stat" data-reveal><div class="num" data-count="120" data-suffix="+">0</div><div class="label">Projets menés</div></div>
-        <div class="stat" data-reveal data-reveal-delay="1"><div class="num" data-count="60" data-suffix="+">0</div><div class="label">Événements produits</div></div>
-        <div class="stat" data-reveal data-reveal-delay="2"><div class="num" data-count="35" data-suffix="+">0</div><div class="label">Marques accompagnées</div></div>
-        <div class="stat" data-reveal data-reveal-delay="3"><div class="num" data-count="200" data-suffix="+">0</div><div class="label">Personnes formées à l'IA</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head split" data-reveal>
-        <div>
-          <p class="eyebrow">Réalisations</p>
-          <h2>Une sélection de projets récents</h2>
-        </div>
-        <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
-      </div>
-      <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph"></div><div class="work-info"><span class="work-tag">Communication 360°</span><h3>Projet Exemple — Lancement de marque</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Événementiel</span><h3>Projet Exemple — Conférence annuelle</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Ingénierie IA</span><h3>Projet Exemple — Agent IA sur-mesure</h3></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-cream">
-    <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Ingénierie IA</p>
-        <h2>Envie de monter en compétence sur l'IA ?</h2>
-        <p class="lede">Formations individuelles ou en plénière, pour particuliers et entreprises, sur l'ensemble de nos domaines d'expertise IA et digital.</p>
-      </div>
-      <div style="text-align:center" data-reveal data-reveal-delay="1">
-        <a href="/ingenierie-ia.html#formation" class="btn btn-primary">Voir les formations disponibles</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Témoignages</p>
-        <h2>Ce que nos clients en disent</h2>
-      </div>
-      <div class="testi-track">
-        <div class="testi-card" data-reveal>
-          <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
-          <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
-        </div>
-        <div class="testi-card" data-reveal data-reveal-delay="1">
-          <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
-          <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
-        </div>
-        <div class="testi-card" data-reveal data-reveal-delay="2">
-          <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
-          <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
-        </div>
-      </div>
-      <div class="logo-strip" data-reveal>
-        <span class="lg">Client&nbsp;01</span><span class="lg">Client&nbsp;02</span><span class="lg">Client&nbsp;03</span><span class="lg">Client&nbsp;04</span><span class="lg">Client&nbsp;05</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head split" data-reveal>
-        <div><p class="eyebrow">Journal</p><h2>Nos dernières actualités</h2></div>
-        <a href="/actualites.html" class="btn btn-dark">Tout le journal</a>
-      </div>
-      <div class="grid-3">
-        <div data-reveal><div class="post-thumb"></div><p class="post-meta" style="margin-top:16px">Ingénierie IA</p><h3>Titre d'article à définir</h3></div>
-        <div data-reveal data-reveal-delay="1"><div class="post-thumb" style="background:linear-gradient(150deg,#17130f,#3a2e22)"></div><p class="post-meta" style="margin-top:16px">Communication</p><h3>Titre d'article à définir</h3></div>
-        <div data-reveal data-reveal-delay="2"><div class="post-thumb" style="background:linear-gradient(150deg,#F5A423,#E45327)"></div><p class="post-meta" style="margin-top:16px">Événementiel</p><h3>Titre d'article à définir</h3></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner" data-reveal>
-        <h2>Un projet en tête ? Donnons-lui du rythme.</h2>
-        <p style="color:rgba(255,255,255,.9); max-width:46ch; margin:16px auto 30px;">Communication, événement ou transformation IA — parlons de vos objectifs.</p>
-        <a href="/contact.html" class="btn" style="background:var(--ink); color:var(--white)">Prendre contact</a>
-      </div>
-    </div>
-  </section>
-  
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">TAMBOUR AGENCY</div>
-          <p>Communication 360°, organisation événementielle et ingénierie IA — une seule agence, une exigence de rythme et de précision.</p>
-          <div class="footer-social">
-  <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.2c0-1.48-.03-3.4-2.07-3.4-2.07 0-2.39 1.62-2.39 3.29V21h-4V9Z"/></svg></a>
-  <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
-  <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.7-1.6h1.5V3.2C15.9 3.1 14.8 3 13.6 3c-2.6 0-4.4 1.6-4.4 4.5v2.3H6.5v3.2h2.7v8h4.3Z"/></svg></a>
-  <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M11 10l4 2-4 2v-4Z" fill="currentColor" stroke="none"/></svg></a></div>
-        </div>
-        <div>
-          <h4>Navigation</h4>
-          <a href="/agence.html">L'Agence</a>
-          <a href="/realisations.html">Réalisations</a>
-          <a href="/actualites.html">Actualités</a>
-          <a href="/contact.html">Contact</a>
-        </div>
-        <div>
-          <h4>Expertises</h4>
-          <a href="/communication.html">Communication 360°</a>
-          <a href="/evenementiel.html">Organisation événementielle</a>
-          <a href="/ingenierie-ia.html">Ingénierie IA</a>
-          <a href="/ingenierie-ia.html#formation">Formation IA &amp; digital</a>
-        </div>
-        <div>
-          <h4>Restons connectés</h4>
-          <p>Recevez nos actualités, nos décryptages IA et nos prochaines sessions de formation.</p>
-          <form class="newsletter" data-form>
-            <input type="email" required placeholder="Votre email" aria-label="Votre email" />
-            <button type="submit" aria-label="S'inscrire">→</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Tambour Agency. Tous droits réservés.</span>
-        <div class="legal-links">
-          <a href="/mentions-legales.html">Mentions légales</a>
-          <a href="/mentions-legales.html#confidentialite">Confidentialité</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <button class="back-to-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script src="/assets/js/main.js" defer></script>
+<body>
+  <div class="bg"></div>
+  <div class="rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="wrap">
+    <span class="dot"></span>
+    <div class="brand">TAMBOUR AGENCY</div>
+    <div class="tagline">Communication 360° · Événementiel · Ingénierie IA</div>
+    <h1>Un nouveau rythme se prépare.</h1>
+    <p>Nous travaillons actuellement sur notre nouvelle expérience en ligne. Tambour Agency sera de retour très bientôt — en attendant, contactez-nous directement.</p>
+    <a class="contact" href="mailto:contact@tambouragency.com">contact@tambouragency.com</a>
+  </div>
+  <footer>© 2026 Tambour Agency</footer>
 </body>
 </html>
