@@ -15,10 +15,10 @@ module.exports = function () {
           <p class="eyebrow">Notre identité</p>
           <h2>Une agence, trois expertises, un seul rythme</h2>
           <p>Tambour Agency accompagne marques, institutions et organisations sur trois terrains complémentaires : la communication 360°, l'organisation événementielle et l'ingénierie IA. Une même exigence créative et technique irrigue chacun de ces pôles, du premier brief à la mesure des résultats.</p>
-          <p>Le tambour donne le rythme. Il fédère, il annonce, il marque le temps fort. C'est ce rôle que nous jouons pour nos clients — donner le tempo de leurs prises de parole, de leurs événements et de leur transformation digitale.</p>
+          <p>Le tambour donne le rythme. Il fédère, il annonce, il marque le temps fort. C'est ce rôle que nous jouons pour nos clients, en donnant le tempo de leurs prises de parole, de leurs événements et de leur transformation digitale.</p>
         </div>
         <div class="work-card" data-reveal data-reveal-delay="1">
-          <img src="/assets/img/agence-visual.jpg" alt="Tambour Agency — l'exigence créative et technique au service de l'impact" class="ph" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 15%;" loading="lazy" />
+          <img src="/assets/img/agence-visual.jpg" alt="Tambour Agency, l'exigence créative et technique au service de l'impact" class="ph" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 15%;" loading="lazy" />
         </div>
       </div>
     </div>

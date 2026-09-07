@@ -4,7 +4,7 @@ module.exports = function () {
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Ingénierie IA</b></div>
       <h1>L'intelligence artificielle mise au service de votre performance.</h1>
-      <p class="lede">Conseil, intégration de solutions IA et automatisation des processus — et un pôle formation pour faire monter en compétence vos équipes.</p>
+      <p class="lede">Conseil, intégration de solutions IA et automatisation des processus, ainsi qu'un pôle formation pour faire monter en compétence vos équipes.</p>
       <div class="hero-actions">
         <a href="/contact.html" class="btn btn-primary">Demander un devis</a>
         <a href="#formation" class="btn btn-outline">Voir les formations</a>
@@ -43,9 +43,9 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Automatisation</span><h3>Projet Exemple — Automatisation d'un service client</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Agent IA</span><h3>Projet Exemple — Chatbot interne RH</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph"></div><div class="work-info"><span class="work-tag">Data</span><h3>Projet Exemple — Tableau de bord décisionnel</h3></div></div>
+        <div class="work-card" data-reveal><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Automatisation</span><h3>Projet Exemple : Automatisation d'un service client</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Agent IA</span><h3>Projet Exemple : Chatbot interne RH</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph"></div><div class="work-info"><span class="work-tag">Data</span><h3>Projet Exemple : Tableau de bord décisionnel</h3></div></div>
       </div>
     </div>
   </section>
@@ -56,7 +56,7 @@ module.exports = function () {
       <div class="formation-section" data-reveal>
         <p class="eyebrow" style="color:var(--gold)">Se former à l'IA et au digital</p>
         <h2>Formez-vous à l'IA et au digital avec Tambour Agency</h2>
-        <p class="lede" style="max-width:60ch">Que vous soyez un particulier curieux ou une entreprise souhaitant faire monter ses équipes en compétence, nous proposons des parcours de formation adaptés à votre niveau et à vos objectifs — en individuel ou en plénière.</p>
+        <p class="lede" style="max-width:60ch">Que vous soyez un particulier curieux ou une entreprise souhaitant faire monter ses équipes en compétence, nous proposons des parcours de formation adaptés à votre niveau et à vos objectifs, en individuel ou en plénière.</p>
 
         <div class="formation-modes">
           <div class="mode-card">
@@ -86,7 +86,7 @@ module.exports = function () {
             .map((t) => `<div class="topic-chip">${t}</div>`)
             .join("\n")}
         </div>
-        <p class="form-note" style="margin-bottom:36px">Liste de thématiques indicative — à préciser avec l'équipe Tambour Agency selon vos besoins.</p>
+        <p class="form-note" style="margin-bottom:36px">Liste de thématiques indicative, à préciser avec l'équipe Tambour Agency selon vos besoins.</p>
 
         <div class="formation-form">
           <h3>Demander une formation</h3>
@@ -165,9 +165,9 @@ module.exports = function () {
         <h2>Retours de nos participants</h2>
       </div>
       <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="2"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici — retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="2"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
       </div>
     </div>
   </section>

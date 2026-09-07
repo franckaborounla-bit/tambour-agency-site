@@ -24,7 +24,7 @@ module.exports = function () {
         <span>Ingénierie IA</span>
       </div>
       <h1>Donner du rythme aux marques qui veulent marquer les esprits.</h1>
-      <p class="lede">Tambour Agency accompagne marques et institutions sur trois terrains — la communication, l'événementiel et l'intelligence artificielle — avec une seule exigence : la précision de l'impact.</p>
+      <p class="lede">Tambour Agency accompagne marques et institutions sur trois terrains complémentaires : la communication, l'événementiel et l'intelligence artificielle. Une seule exigence nous anime, la précision de l'impact.</p>
       <div class="hero-actions">
         <a href="/contact.html" class="btn btn-primary">Démarrer un projet</a>
         <a href="/agence.html" class="btn btn-outline">Découvrir l'agence</a>
@@ -38,7 +38,7 @@ module.exports = function () {
       <div class="section-head center" data-reveal>
         <p class="eyebrow">Notre triptyque</p>
         <h2>Trois expertises, une seule méthode</h2>
-        <p class="lede">Derrière chaque pôle, la même discipline : comprendre, concevoir, exécuter avec exigence — pour un résultat qui se voit, s'entend et se mesure.</p>
+        <p class="lede">Derrière chaque pôle, la même discipline : comprendre, concevoir, exécuter avec exigence, pour un résultat qui se voit, s'entend et se mesure.</p>
       </div>
       <div class="poles">
         <a href="/communication.html" class="pole-card" data-reveal>
@@ -59,7 +59,7 @@ module.exports = function () {
           <span class="pole-num">03</span>
           <div class="pole-icon">${ICONS.ai}</div>
           <h3>Ingénierie IA</h3>
-          <p>Conseil, intégration de solutions d'intelligence artificielle, automatisation des processus — et un pôle formation dédié.</p>
+          <p>Conseil, intégration de solutions d'intelligence artificielle, automatisation des processus, ainsi qu'un pôle formation dédié.</p>
           <span class="pole-link">Découvrir le pôle →</span>
         </a>
       </div>
@@ -87,9 +87,9 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph"></div><div class="work-info"><span class="work-tag">Communication 360°</span><h3>Projet Exemple — Lancement de marque</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Événementiel</span><h3>Projet Exemple — Conférence annuelle</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Ingénierie IA</span><h3>Projet Exemple — Agent IA sur-mesure</h3></div></div>
+        <div class="work-card" data-reveal><div class="ph"></div><div class="work-info"><span class="work-tag">Communication 360°</span><h3>Projet Exemple : Lancement de marque</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Événementiel</span><h3>Projet Exemple : Conférence annuelle</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Ingénierie IA</span><h3>Projet Exemple : Agent IA sur-mesure</h3></div></div>
       </div>
     </div>
   </section>
@@ -116,17 +116,17 @@ module.exports = function () {
       <div class="testi-track">
         <div class="testi-card" data-reveal>
           <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
+          <p>« Citation du client à insérer ici, un retour d'expérience sur la collaboration avec Tambour Agency. »</p>
           <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
         </div>
         <div class="testi-card" data-reveal data-reveal-delay="1">
           <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
+          <p>« Citation du client à insérer ici, un retour d'expérience sur la collaboration avec Tambour Agency. »</p>
           <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
         </div>
         <div class="testi-card" data-reveal data-reveal-delay="2">
           <div class="stars">★★★★★</div>
-          <p>« Citation du client à insérer ici — retour d'expérience sur la collaboration avec Tambour Agency. »</p>
+          <p>« Citation du client à insérer ici, un retour d'expérience sur la collaboration avec Tambour Agency. »</p>
           <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
         </div>
       </div>
@@ -152,11 +152,11 @@ module.exports = function () {
       <p class="trust-title" data-reveal>Ils nous font confiance</p>
       <div class="trust-logos" data-reveal data-reveal-delay="1">
         <img src="/assets/img/partners/vases-dhonneur.png" alt="Vases d'Honneur" loading="lazy" />
-        <img src="/assets/img/partners/shen.png" alt="SHEN — Salon d'Honneur de l'Entrepreneuriat" loading="lazy" />
-        <img src="/assets/img/partners/eleeo.png" alt="ELEEO — Département" loading="lazy" />
+        <img src="/assets/img/partners/shen.png" alt="SHEN, Salon d'Honneur de l'Entrepreneuriat" loading="lazy" />
+        <img src="/assets/img/partners/eleeo.png" alt="ELEEO, Département" loading="lazy" />
         <img src="/assets/img/partners/lonna-authentik.png" alt="Lonna Authentik" loading="lazy" />
         <img src="/assets/img/partners/helenas-feminist-actions.png" alt="Helena's Feminist Actions" loading="lazy" />
-        <img src="/assets/img/partners/fnd.png" alt="FND — ONG Famille Nutrition Développement" loading="lazy" />
+        <img src="/assets/img/partners/fnd.png" alt="FND, ONG Famille Nutrition Développement" loading="lazy" />
       </div>
     </div>
   </section>
@@ -165,7 +165,7 @@ module.exports = function () {
     <div class="container">
       <div class="cta-banner" data-reveal>
         <h2>Un projet en tête ? Donnons-lui du rythme.</h2>
-        <p style="color:rgba(255,255,255,.9); max-width:46ch; margin:16px auto 30px;">Communication, événement ou transformation IA — parlons de vos objectifs.</p>
+        <p style="color:rgba(255,255,255,.9); max-width:46ch; margin:16px auto 30px;">Communication, événement ou transformation IA : parlons de vos objectifs.</p>
         <a href="/contact.html" class="btn" style="background:var(--ink); color:var(--white)">Prendre contact</a>
       </div>
     </div>

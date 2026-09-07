@@ -64,8 +64,8 @@ module.exports = function () {
   <section class="section section-cream">
     <div class="container">
       <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici — retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici — retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
       </div>
     </div>
   </section>

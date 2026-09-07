@@ -6,7 +6,7 @@ module.exports = function () {
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Contact</b></div>
       <h1>Parlons de votre projet.</h1>
-      <p class="lede">Communication, événementiel, ingénierie IA ou formation — écrivez-nous, nous revenons vers vous sous 48h ouvrées.</p>
+      <p class="lede">Communication, événementiel, ingénierie IA ou formation : écrivez-nous, nous revenons vers vous sous 48h ouvrées.</p>
     </div>
   </section>
 

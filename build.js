@@ -1,5 +1,5 @@
 // =========================================================
-// TAMBOUR AGENCY — build.js
+// TAMBOUR AGENCY : build.js
 // Assemble les pages statiques (layout + contenu) -> dist/
 // =========================================================
 const fs = require("fs");
@@ -59,7 +59,7 @@ function header(activeHref) {
   return `<a class="skip-link" href="#main">Aller au contenu</a>
   <header class="site-header">
     <div class="container">
-      <a href="/index.html" class="logo" aria-label="Tambour Agency — Accueil">
+      <a href="/index.html" class="logo" aria-label="Accueil de Tambour Agency">
         <img class="logo-img logo-img-ink" src="/assets/img/logo-ink.png" alt="Tambour Agency" />
         <img class="logo-img logo-img-white" src="/assets/img/logo-white.png" alt="Tambour Agency" />
       </a>
@@ -84,7 +84,7 @@ function footer() {
       <div class="footer-top">
         <div>
           <div class="footer-logo">TAMBOUR AGENCY</div>
-          <p>Communication 360°, organisation événementielle et ingénierie IA — une seule agence, une exigence de rythme et de précision.</p>
+          <p>Communication 360°, organisation événementielle et ingénierie IA : une seule agence, une exigence de rythme et de précision.</p>
           <div class="footer-social">${socialIcons()}</div>
         </div>
         <div>

@@ -17,7 +17,7 @@ const MAINTENANCE_SRC = path.join(__dirname, "maintenance.html");
 //   - supprimez ce fichier MAINTENANCE, committez, poussez
 // ============================================================
 if (fs.existsSync(MAINTENANCE_FLAG)) {
-  console.log("⚠️  Mode MAINTENANCE actif — publication de la page de maintenance uniquement.");
+  console.log("⚠️  Mode MAINTENANCE actif : publication de la page de maintenance uniquement.");
   fs.rmSync(DIST, { recursive: true, force: true });
   fs.mkdirSync(DIST, { recursive: true });
   fs.mkdirSync(path.join(DIST, "assets", "img"), { recursive: true });
@@ -38,56 +38,56 @@ if (fs.existsSync(MAINTENANCE_FLAG)) {
 const PAGES = [
   {
     file: "index.html",
-    title: "Tambour Agency — Communication 360°, Événementiel & Ingénierie IA",
+    title: "Tambour Agency | Communication 360°, Événementiel & Ingénierie IA",
     description: "Tambour Agency accompagne les marques en communication 360°, organisation événementielle et ingénierie IA. Découvrez nos expertises et nos formations IA.",
     bodyClass: "page-dark",
     content: require("./src/pages/index.js"),
   },
   {
     file: "agence.html",
-    title: "L'Agence — Tambour Agency",
-    description: "Tambour Agency : communication 360°, organisation événementielle et ingénierie IA — découvrez notre identité, notre mission, nos valeurs et notre équipe.",
+    title: "L'Agence | Tambour Agency",
+    description: "Tambour Agency : communication 360°, organisation événementielle et ingénierie IA. Découvrez notre identité, notre mission, nos valeurs et notre équipe.",
     content: require("./src/pages/agence.js"),
   },
   {
     file: "communication.html",
-    title: "Communication 360° — Tambour Agency",
+    title: "Communication 360° | Tambour Agency",
     description: "Stratégie de marque, création de contenus, identité visuelle, réseaux sociaux, production audiovisuelle et relations publiques.",
     content: require("./src/pages/communication.js"),
   },
   {
     file: "evenementiel.html",
-    title: "Organisation Événementielle — Tambour Agency",
+    title: "Organisation Événementielle | Tambour Agency",
     description: "Conception et production d'événements corporate, lancements de produits, séminaires, conférences et événements grand public.",
     content: require("./src/pages/evenementiel.js"),
   },
   {
     file: "ingenierie-ia.html",
-    title: "Ingénierie IA & Formation — Tambour Agency",
+    title: "Ingénierie IA & Formation | Tambour Agency",
     description: "Conseil en IA, intégration de solutions, automatisation des processus, et formations individuelles ou en plénière à l'IA et au digital.",
     content: require("./src/pages/ingenierie-ia.js"),
   },
   {
     file: "realisations.html",
-    title: "Réalisations — Tambour Agency",
+    title: "Réalisations | Tambour Agency",
     description: "Découvrez une sélection de projets menés par Tambour Agency en communication, événementiel et ingénierie IA.",
     content: require("./src/pages/realisations.js"),
   },
   {
     file: "actualites.html",
-    title: "Actualités — Tambour Agency",
+    title: "Actualités | Tambour Agency",
     description: "Le journal de Tambour Agency : actualités de l'agence, décryptages IA et digital, retours d'expérience événementiels.",
     content: require("./src/pages/actualites.js"),
   },
   {
     file: "contact.html",
-    title: "Contact — Tambour Agency",
+    title: "Contact | Tambour Agency",
     description: "Contactez Tambour Agency pour votre projet de communication, d'événementiel, d'ingénierie IA ou de formation.",
     content: require("./src/pages/contact.js"),
   },
   {
     file: "mentions-legales.html",
-    title: "Mentions légales & Confidentialité — Tambour Agency",
+    title: "Mentions légales & Confidentialité | Tambour Agency",
     description: "Mentions légales et politique de confidentialité de Tambour Agency.",
     content: require("./src/pages/mentions-legales.js"),
   },
@@ -140,7 +140,7 @@ fs.writeFileSync(
 fs.writeFileSync(
   path.join(DIST, "404.html"),
   layout({
-    title: "Page introuvable — Tambour Agency",
+    title: "Page introuvable | Tambour Agency",
     description: "Page introuvable.",
     p: "404.html",
     content: `<section class="section" style="padding-top:200px; text-align:center;">

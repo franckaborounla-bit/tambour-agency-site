@@ -22,7 +22,7 @@ module.exports = function () {
           ["Conférences & sommets", "Programmation, intervenants, régie technique et expérience participant."],
           ["Événements grand public", "Activations et expériences immersives pour toucher un large public."],
           ["Événements institutionnels", "Cérémonies, inaugurations et temps forts protocolaires."],
-          ["Régie technique", "Son, lumière, vidéo et diffusion — une exécution technique sans faille."],
+          ["Régie technique", "Son, lumière, vidéo et diffusion : une exécution technique sans faille."],
         ]
           .map(
             ([t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i % 3}" style="min-height:220px"><h3>${t}</h3><p>${d}</p></div>`
@@ -64,8 +64,8 @@ module.exports = function () {
   <section class="section section-cream">
     <div class="container">
       <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici — retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici — retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
       </div>
     </div>
   </section>

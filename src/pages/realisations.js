@@ -1,14 +1,14 @@
 module.exports = function () {
   const items = [
-    ["comm", "Communication 360°", "Projet Exemple 01 — Lancement de marque", ""],
-    ["event", "Événementiel", "Projet Exemple 02 — Conférence annuelle", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["ia", "Ingénierie IA", "Projet Exemple 03 — Agent IA sur-mesure", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 04 — Campagne réseaux sociaux", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 05 — Séminaire d'entreprise", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 06 — Automatisation service client", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 07 — Film de marque", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 08 — Lancement produit grand public", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 09 — Tableau de bord décisionnel", "linear-gradient(160deg,#F5A423,#E45327)"],
+    ["comm", "Communication 360°", "Projet Exemple 01 : Lancement de marque", ""],
+    ["event", "Événementiel", "Projet Exemple 02 : Conférence annuelle", "linear-gradient(160deg,#17130f,#3a2e22)"],
+    ["ia", "Ingénierie IA", "Projet Exemple 03 : Agent IA sur-mesure", "linear-gradient(160deg,#F5A423,#E45327)"],
+    ["comm", "Communication 360°", "Projet Exemple 04 : Campagne réseaux sociaux", "linear-gradient(160deg,#17130f,#3a2e22)"],
+    ["event", "Événementiel", "Projet Exemple 05 : Séminaire d'entreprise", ""],
+    ["ia", "Ingénierie IA", "Projet Exemple 06 : Automatisation service client", "linear-gradient(160deg,#F5A423,#E45327)"],
+    ["comm", "Communication 360°", "Projet Exemple 07 : Film de marque", "linear-gradient(160deg,#17130f,#3a2e22)"],
+    ["event", "Événementiel", "Projet Exemple 08 : Lancement produit grand public", ""],
+    ["ia", "Ingénierie IA", "Projet Exemple 09 : Tableau de bord décisionnel", "linear-gradient(160deg,#F5A423,#E45327)"],
   ];
   return `
   <section class="page-hero">

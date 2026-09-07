@@ -11,13 +11,13 @@ module.exports = function () {
     <div class="container" style="max-width:820px">
       <div data-reveal>
         <h2>Mentions légales</h2>
-        <p><em>Contenu à finaliser avec un conseil juridique avant mise en ligne — trame indicative ci-dessous.</em></p>
+        <p><em>Contenu à finaliser avec un conseil juridique avant mise en ligne. Trame indicative ci-dessous.</em></p>
         <h3>Éditeur du site</h3>
         <p>Tambour Agency<br/>[Forme juridique, capital social]<br/>[Adresse du siège social]<br/>[Numéro d'immatriculation / RCCM ou équivalent]<br/>Email : contact@tambouragency.com</p>
         <h3>Directeur de la publication</h3>
         <p>[Nom du directeur de la publication]</p>
         <h3>Hébergement</h3>
-        <p>Ce site est hébergé par Cloudflare, Inc. — [adresse de l'hébergeur à compléter selon la configuration retenue].</p>
+        <p>Ce site est hébergé par Cloudflare, Inc. [adresse de l'hébergeur à compléter selon la configuration retenue].</p>
         <h3>Propriété intellectuelle</h3>
         <p>L'ensemble des contenus présents sur ce site (textes, visuels, vidéos, logos) est la propriété de Tambour Agency, sauf mention contraire, et ne peut être reproduit sans autorisation préalable.</p>
       </div>

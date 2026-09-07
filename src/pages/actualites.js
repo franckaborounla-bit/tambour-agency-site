@@ -1,10 +1,10 @@
 module.exports = function () {
   const posts = [
-    ["Ingénierie IA", "Titre d'article à définir — décryptage IA générative"],
-    ["Communication", "Titre d'article à définir — tendances communication 360°"],
-    ["Événementiel", "Titre d'article à définir — retour d'expérience événementiel"],
-    ["Formation", "Titre d'article à définir — pourquoi former vos équipes à l'IA"],
-    ["Agence", "Titre d'article à définir — les coulisses de Tambour Agency"],
+    ["Ingénierie IA", "Titre d'article à définir : décryptage IA générative"],
+    ["Communication", "Titre d'article à définir : tendances communication 360°"],
+    ["Événementiel", "Titre d'article à définir : retour d'expérience événementiel"],
+    ["Formation", "Titre d'article à définir : pourquoi former vos équipes à l'IA"],
+    ["Agence", "Titre d'article à définir : les coulisses de Tambour Agency"],
   ];
   return `
   <section class="page-hero">
@@ -21,7 +21,7 @@ module.exports = function () {
         .map(
           (p, i) => `<a href="#" class="post-card" data-reveal data-reveal-delay="${i % 4}" style="display:grid">
         <div class="post-thumb" ${i % 2 ? 'style="background:linear-gradient(150deg,#17130f,#3a2e22)"' : ""}></div>
-        <div><p class="post-meta">${p[0]}</p><h3>${p[1]}</h3><p>Extrait de l'article à rédiger — un aperçu concis du contenu pour donner envie d'en savoir plus.</p></div>
+        <div><p class="post-meta">${p[0]}</p><h3>${p[1]}</h3><p>Un aperçu concis de l'article à rédiger, pour donner envie d'en savoir plus.</p></div>
       </a>`
         )
         .join("\n")}
