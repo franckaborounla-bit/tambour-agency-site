@@ -1,6 +1,6 @@
 // =========================================================
 // TAMBOUR AGENCY — main.js
-// Nav, reveal-on-scroll, compteurs, hero canvas "pulsation",
+// Nav, reveal-on-scroll, compteurs, hero vidéo,
 // curseur premium, formulaires (contact / formation)
 // =========================================================
 (function () {
@@ -116,76 +116,21 @@
     });
   }
 
-  /* ---------- Hero canvas — visuel "pulsation" (placeholder vidéo) ----------
-     À REMPLACER : dès que la vidéo de marque définitive est disponible,
-     remplacer le <canvas id="heroCanvas"> par une balise <video autoplay muted loop playsinline>
-     pointant vers /assets/video/hero.mp4 (+ .webm). Voir DEPLOY.md. */
-  var canvas = document.getElementById("heroCanvas");
-  if (canvas) {
-    var ctx = canvas.getContext("2d");
-    var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var particles = [];
-    var COLORS = ["#E45327", "#F5A423", "#ffffff"];
-
-    function resize() {
-      w = canvas.offsetWidth; h = canvas.offsetHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    function initParticles() {
-      particles = [];
-      var count = Math.round((w * h) / 26000);
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: 1 + Math.random() * 2.4,
-          speed: 0.15 + Math.random() * 0.4,
-          phase: Math.random() * Math.PI * 2,
-          color: COLORS[i % COLORS.length],
-        });
+  /* ---------- Hero vidéo ----------
+     Vidéo de marque en lecture automatique, muette et en boucle.
+     Respecte prefers-reduced-motion : on met en pause et on garde
+     l'image poster affichée pour les utilisateurs sensibles au mouvement. */
+  var heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    if (reduceMotion) {
+      heroVideo.pause();
+      heroVideo.removeAttribute("autoplay");
+    } else {
+      var playPromise = heroVideo.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
       }
     }
-    resize(); initParticles();
-    window.addEventListener("resize", function () { resize(); initParticles(); });
-
-    var t = 0;
-    function drawRings() {
-      var cx = w * 0.72, cy = h * 0.42;
-      for (var i = 0; i < 4; i++) {
-        var progress = ((t * 0.00035) + i / 4) % 1;
-        var radius = progress * Math.max(w, h) * 0.62;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(245,164,35," + (0.35 * (1 - progress)) + ")";
-        ctx.lineWidth = 1.4;
-        ctx.stroke();
-      }
-    }
-    function drawParticles() {
-      particles.forEach(function (p) {
-        var yy = p.y + Math.sin(t * 0.001 * p.speed + p.phase) * 18;
-        ctx.beginPath();
-        ctx.arc(p.x, yy, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.55;
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      });
-    }
-    function frame() {
-      t += 16;
-      ctx.clearRect(0, 0, w, h);
-      var grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, "#1f1912");
-      grad.addColorStop(1, "#17130f");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-      drawRings();
-      drawParticles();
-      if (!reduceMotion) requestAnimationFrame(frame);
-    }
-    frame();
   }
 
   /* ---------- Forms: contact / devis / formation ----------
