@@ -103,13 +103,20 @@ p{ margin:0 0 1em; color:var(--grey); }
   background:rgba(255,255,255,.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
   padding:14px 0; border-color:var(--line); box-shadow:0 10px 30px -20px rgba(23,19,15,.25);
 }
-body.page-dark .site-header:not(.is-scrolled){ color:var(--white); }
-body.page-dark .site-header:not(.is-scrolled) .logo path.mark-fill{ fill:var(--white); }
-body.page-dark .site-header:not(.is-scrolled) .nav-link{ color:rgba(255,255,255,.88); }
+/* Every page opens on a dark section (homepage hero video, or the ink
+   .page-hero on sub-pages) with the header sitting transparently on top of
+   it, so the header goes light-on-dark on ALL pages until scrolled. */
+.site-header:not(.is-scrolled){ color:var(--white); }
+.site-header:not(.is-scrolled) .nav-link{ color:rgba(255,255,255,.88); }
 
-.logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.28rem; color:var(--ink); letter-spacing:-.01em; }
-.logo .dot{ width:9px; height:9px; border-radius:50%; background:var(--grad-brand); animation:pulseDot 2.4s ease-in-out infinite; }
-@keyframes pulseDot{ 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(1.7); opacity:.55;} }
+/* Logo: two raster variants (ink / white) swapped depending on header background.
+   Default (scrolled header, background turns light): ink logo visible.
+   Dark transparent header (top of any page, before scroll): white logo visible. */
+.logo{ display:flex; align-items:center; }
+.logo-img{ display:block; height:32px; width:auto; }
+.logo-img-white{ display:none; }
+.site-header:not(.is-scrolled) .logo-img-ink{ display:none; }
+.site-header:not(.is-scrolled) .logo-img-white{ display:block; }
 
 .nav-links{ display:flex; align-items:center; gap:34px; }
 .nav-link{ font-size:.92rem; font-weight:600; color:var(--ink-soft); position:relative; padding:6px 0; }
@@ -129,7 +136,7 @@ body.page-dark .site-header:not(.is-scrolled) .nav-link{ color:rgba(255,255,255,
   .nav-links .nav-link{ font-size:1.4rem; }
   .header-actions .nav-cta{ display:none; }
   .nav-toggle{ display:flex; z-index:220; }
-  body.page-dark .site-header:not(.is-scrolled) .nav-toggle{ border-color:rgba(255,255,255,.4); }
+  .site-header:not(.is-scrolled) .nav-toggle{ border-color:rgba(255,255,255,.4); }
 }
 
 /* ---------- Hero ---------- */

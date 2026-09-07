@@ -60,7 +60,8 @@ function header(activeHref) {
   <header class="site-header">
     <div class="container">
       <a href="/index.html" class="logo" aria-label="Tambour Agency — Accueil">
-        <span class="dot"></span> TAMBOUR&nbsp;AGENCY
+        <img class="logo-img logo-img-ink" src="/assets/img/logo-ink.png" alt="Tambour Agency" />
+        <img class="logo-img logo-img-white" src="/assets/img/logo-white.png" alt="Tambour Agency" />
       </a>
       <nav class="nav-links" aria-label="Navigation principale">
         ${NAV.map(
