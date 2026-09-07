@@ -4,7 +4,7 @@ module.exports = function () {
     ["Communication", "Titre d'article à définir — tendances communication 360°"],
     ["Événementiel", "Titre d'article à définir — retour d'expérience événementiel"],
     ["Formation", "Titre d'article à définir — pourquoi former vos équipes à l'IA"],
-    ["Agence", "Titre d'article à définir — Tambour Studio devient Tambour Agency"],
+    ["Agence", "Titre d'article à définir — les coulisses de Tambour Agency"],
   ];
   return `
   <section class="page-hero">
