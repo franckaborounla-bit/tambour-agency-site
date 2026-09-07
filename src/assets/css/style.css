@@ -255,6 +255,16 @@ p{ margin:0 0 1em; color:var(--grey); }
 .logo-strip{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:30px; padding:44px 0; opacity:.75; }
 .logo-strip .lg{ font-family:var(--font-display); font-weight:700; font-size:1.2rem; color:var(--grey); letter-spacing:.02em; }
 
+/* ---------- Trust band ("Ils nous font confiance") ---------- */
+.trust-band{ background:var(--white); border-top:1px solid var(--line); }
+.trust-title{ text-align:center; font-size:.78rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--grey); margin-bottom:44px; }
+.trust-logos{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:52px 64px; }
+.trust-logos img{ display:block; height:80px; width:auto; max-width:200px; object-fit:contain; }
+@media (max-width:640px){
+  .trust-logos{ gap:34px 40px; }
+  .trust-logos img{ height:58px; max-width:150px; }
+}
+
 /* ---------- Formation (Ingénierie IA) ---------- */
 .formation-section{
   background:var(--ink); color:var(--white); border-radius:28px; padding:70px 50px; position:relative; overflow:hidden;

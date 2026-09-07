@@ -130,9 +130,6 @@ module.exports = function () {
           <div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div>
         </div>
       </div>
-      <div class="logo-strip" data-reveal>
-        <span class="lg">Client&nbsp;01</span><span class="lg">Client&nbsp;02</span><span class="lg">Client&nbsp;03</span><span class="lg">Client&nbsp;04</span><span class="lg">Client&nbsp;05</span>
-      </div>
     </div>
   </section>
 
@@ -146,6 +143,20 @@ module.exports = function () {
         <div data-reveal><div class="post-thumb"></div><p class="post-meta" style="margin-top:16px">Ingénierie IA</p><h3>Titre d'article à définir</h3></div>
         <div data-reveal data-reveal-delay="1"><div class="post-thumb" style="background:linear-gradient(150deg,#17130f,#3a2e22)"></div><p class="post-meta" style="margin-top:16px">Communication</p><h3>Titre d'article à définir</h3></div>
         <div data-reveal data-reveal-delay="2"><div class="post-thumb" style="background:linear-gradient(150deg,#F5A423,#E45327)"></div><p class="post-meta" style="margin-top:16px">Événementiel</p><h3>Titre d'article à définir</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm trust-band">
+    <div class="container">
+      <p class="trust-title" data-reveal>Ils nous font confiance</p>
+      <div class="trust-logos" data-reveal data-reveal-delay="1">
+        <img src="/assets/img/partners/vases-dhonneur.png" alt="Vases d'Honneur" loading="lazy" />
+        <img src="/assets/img/partners/shen.png" alt="SHEN — Salon d'Honneur de l'Entrepreneuriat" loading="lazy" />
+        <img src="/assets/img/partners/eleeo.png" alt="ELEEO — Département" loading="lazy" />
+        <img src="/assets/img/partners/lonna-authentik.png" alt="Lonna Authentik" loading="lazy" />
+        <img src="/assets/img/partners/helenas-feminist-actions.png" alt="Helena's Feminist Actions" loading="lazy" />
+        <img src="/assets/img/partners/fnd.png" alt="FND — ONG Famille Nutrition Développement" loading="lazy" />
       </div>
     </div>
   </section>
