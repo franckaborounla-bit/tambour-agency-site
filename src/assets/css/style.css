@@ -113,7 +113,7 @@ p{ margin:0 0 1em; color:var(--grey); }
    Default (scrolled header, background turns light): ink logo visible.
    Dark transparent header (top of any page, before scroll): white logo visible. */
 .logo{ display:flex; align-items:center; }
-.logo-img{ display:block; height:32px; width:auto; }
+.logo-img{ display:block; height:46px; width:auto; }
 .logo-img-white{ display:none; }
 .site-header:not(.is-scrolled) .logo-img-ink{ display:none; }
 .site-header:not(.is-scrolled) .logo-img-white{ display:block; }
