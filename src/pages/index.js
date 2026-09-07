@@ -3,7 +3,19 @@ const { ICONS } = require("../../build.js");
 module.exports = function () {
   return `
   <section class="hero">
-    <div class="hero-canvas-wrap"><canvas id="heroCanvas"></canvas></div>
+    <div class="hero-canvas-wrap">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/assets/img/hero-poster.jpg"
+      >
+        <source src="/assets/video/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <div class="hero-tag">
