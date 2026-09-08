@@ -104,8 +104,9 @@ function footer() {
         <div>
           <h4>Restons connectés</h4>
           <p>Recevez nos actualités, nos décryptages IA et nos prochaines sessions de formation.</p>
-          <form class="newsletter" data-form>
-            <input type="email" required placeholder="Votre email" aria-label="Votre email" />
+          <form class="newsletter" data-form="newsletter-footer">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="email" name="email" required placeholder="Votre email" aria-label="Votre email" />
             <button type="submit" aria-label="S'inscrire">→</button>
           </form>
         </div>

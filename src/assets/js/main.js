@@ -6,6 +6,13 @@
 (function () {
   "use strict";
 
+  /* Clé d'accès Web3Forms (gratuit, sans backend) : à remplacer par la clé
+     reçue par email après inscription sur https://web3forms.com avec
+     l'adresse Gmail du site. Les messages envoyés depuis les formulaires
+     du site (contact, formation, newsletters) seront alors livrés dans
+     cette boîte Gmail. */
+  var WEB3FORMS_ACCESS_KEY = "359a00f4-d44d-4d11-ba26-f82b2fd07714";
+
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Header scroll state ---------- */
@@ -117,38 +124,64 @@
   }
 
   /* ---------- Hero vidéo ----------
-     Vidéo de marque en lecture automatique, muette et en boucle.
-     Respecte prefers-reduced-motion : on met en pause et on garde
-     l'image poster affichée pour les utilisateurs sensibles au mouvement. */
+     Vidéo de marque en lecture automatique, muette et en boucle — jouée
+     dans tous les cas, y compris avec "réduire les animations" activé
+     (pratique courante pour une vidéo de marque en hero). Seules les
+     animations décoratives secondaires (reveal, curseur, etc.) respectent
+     prefers-reduced-motion ailleurs dans ce fichier. */
   var heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    if (reduceMotion) {
-      heroVideo.pause();
-      heroVideo.removeAttribute("autoplay");
-    } else {
-      var playPromise = heroVideo.play();
-      if (playPromise && playPromise.catch) {
-        playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
-      }
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
     }
   }
 
-  /* ---------- Forms: contact / devis / formation ----------
-     Pas de backend par défaut sur un site statique Cloudflare Pages.
-     Ce script simule un envoi réussi côté client après validation.
-     Pour un envoi réel : brancher une Cloudflare Pages Function (/functions/api/*)
-     ou un service tiers (Web3Forms, Formspree...). Voir DEPLOY.md. */
+  /* ---------- Forms: contact / devis / formation / newsletter ----------
+     Envoi réel via Web3Forms (service tiers gratuit, sans backend) :
+     chaque soumission est transmise par email à la boîte Gmail associée
+     à la clé WEB3FORMS_ACCESS_KEY définie en haut de ce fichier. */
+  var formSubjects = {
+    contact: "Nouveau message - Formulaire de contact",
+    formation: "Nouvelle demande de formation",
+    "newsletter-actu": "Nouvelle inscription newsletter (page Actualités)",
+    "newsletter-footer": "Nouvelle inscription newsletter (pied de page)",
+  };
   document.querySelectorAll("form[data-form]").forEach(function (form) {
+    var formName = form.getAttribute("data-form");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var honeypot = form.querySelector('[name="botcheck"]');
+      if (honeypot && honeypot.checked) return;
+
       var btn = form.querySelector("button[type=submit]");
+      var originalLabel = btn ? btn.innerHTML : "";
       var success = form.parentElement.querySelector(".form-success");
+
+      var data = new FormData(form);
+      data.append("access_key", WEB3FORMS_ACCESS_KEY);
+      data.append("subject", formSubjects[formName] || "Nouveau message - Site Tambour Agency");
+      data.append("from_name", "Site Tambour Agency");
+
       if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours..."; }
-      setTimeout(function () {
-        form.style.display = "none";
-        if (success) success.classList.add("show");
-        else alert("Merci, votre demande a bien été reçue.");
-      }, 700);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message || "Erreur d'envoi");
+          form.reset();
+          form.style.display = "none";
+          if (success) success.classList.add("show");
+          else alert("Merci, votre demande a bien été reçue.");
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
+          alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou écrivez-nous directement à contact@tambouragency.com.");
+        });
     });
   });
 })();

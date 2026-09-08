@@ -34,8 +34,9 @@ module.exports = function () {
         <p class="eyebrow">Newsletter</p>
         <h2>Ne manquez aucune actualité</h2>
       </div>
-      <form class="newsletter" data-form style="max-width:440px; margin:0 auto; border-color:var(--line)">
-        <input type="email" required placeholder="Votre email" aria-label="Votre email" style="color:var(--ink-soft)" />
+      <form class="newsletter" data-form="newsletter-actu" style="max-width:440px; margin:0 auto; border-color:var(--line)">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="email" name="email" required placeholder="Votre email" aria-label="Votre email" style="color:var(--ink-soft)" />
         <button type="submit" aria-label="S'inscrire">→</button>
       </form>
     </div>

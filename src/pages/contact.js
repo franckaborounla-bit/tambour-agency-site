@@ -15,7 +15,8 @@ module.exports = function () {
       <div class="contact-grid">
         <div data-reveal>
           <h2>Écrivez-nous</h2>
-          <form data-form>
+          <form data-form="contact">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="form-grid">
               <div class="field"><label for="c-name">Nom et prénom *</label><input id="c-name" name="name" type="text" required /></div>
               <div class="field"><label for="c-email">Email *</label><input id="c-email" name="email" type="email" required /></div>

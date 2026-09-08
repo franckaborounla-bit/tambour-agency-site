@@ -92,7 +92,8 @@ module.exports = function () {
           <h3>Demander une formation</h3>
           <p style="margin-bottom:26px">Remplissez ce formulaire, nous revenons vers vous sous 48h ouvrées pour construire le parcours adapté.</p>
 
-          <form data-form>
+          <form data-form="formation">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="form-grid">
               <div class="field"><label for="f-name">Nom et prénom *</label><input id="f-name" name="name" type="text" required /></div>
               <div class="field"><label for="f-org">Entreprise / organisation <small>(optionnel)</small></label><input id="f-org" name="org" type="text" /></div>
