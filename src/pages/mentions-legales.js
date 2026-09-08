@@ -13,7 +13,7 @@ module.exports = function () {
         <h2>Mentions légales</h2>
         <p><em>Contenu à finaliser avec un conseil juridique avant mise en ligne. Trame indicative ci-dessous.</em></p>
         <h3>Éditeur du site</h3>
-        <p>Tambour Agency<br/>[Forme juridique, capital social]<br/>[Adresse du siège social]<br/>[Numéro d'immatriculation / RCCM ou équivalent]<br/>Email : contact@tambouragency.com</p>
+        <p>Tambour Agency<br/>[Forme juridique, capital social]<br/>Siège social : Cocody, Abidjan, Côte d'Ivoire<br/>[Numéro d'immatriculation / RCCM ou équivalent]<br/>Email : tambouragency@gmail.com<br/>Téléphone : +225 07 14 50 82 89 (Côte d'Ivoire) / +229 01 97 33 45 89 (Bénin)</p>
         <h3>Directeur de la publication</h3>
         <p>[Nom du directeur de la publication]</p>
         <h3>Hébergement</h3>
@@ -32,7 +32,7 @@ module.exports = function () {
         <h3>Cookies</h3>
         <p>Ce site peut utiliser des cookies de mesure d'audience et de fonctionnement. Un bandeau de consentement doit être configuré avant la mise en production.</p>
         <h3>Vos droits</h3>
-        <p>Conformément à la réglementation applicable, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-nous à contact@tambouragency.com.</p>
+        <p>Conformément à la réglementation applicable, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-nous à tambouragency@gmail.com.</p>
       </div>
     </div>
   </section>

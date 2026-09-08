@@ -180,7 +180,7 @@
         })
         .catch(function () {
           if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
-          alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou écrivez-nous directement à contact@tambouragency.com.");
+          alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou écrivez-nous directement à tambouragency@gmail.com.");
         });
     });
   });

@@ -47,9 +47,9 @@ module.exports = function () {
 
         <div data-reveal data-reveal-delay="1">
           <h2>Coordonnées</h2>
-          <div class="contact-info-item"><div class="ic">${ICONS.mail}</div><div><b>Email</b><p style="margin:0">contact@tambouragency.com</p></div></div>
-          <div class="contact-info-item"><div class="ic">${ICONS.phone}</div><div><b>Téléphone</b><p style="margin:0">+XXX XX XX XX XX</p></div></div>
-          <div class="contact-info-item"><div class="ic">${ICONS.pin}</div><div><b>Adresse</b><p style="margin:0">[Adresse à compléter], [Ville, Pays]</p></div></div>
+          <div class="contact-info-item"><div class="ic">${ICONS.mail}</div><div><b>Email</b><p style="margin:0"><a href="mailto:tambouragency@gmail.com" style="color:inherit">tambouragency@gmail.com</a></p></div></div>
+          <div class="contact-info-item"><div class="ic">${ICONS.phone}</div><div><b>Téléphone</b><p style="margin:0"><a href="tel:+2250714508289" style="color:inherit">+225 07 14 50 82 89</a> (Côte d'Ivoire)<br/><a href="tel:+2290197334589" style="color:inherit">+229 01 97 33 45 89</a> (Bénin)</p></div></div>
+          <div class="contact-info-item"><div class="ic">${ICONS.pin}</div><div><b>Adresse</b><p style="margin:0">Cocody, Abidjan, Côte d'Ivoire</p></div></div>
           <div class="map-block">Carte de localisation à intégrer (Google Maps)</div>
           <div class="footer-social" style="margin-top:26px; color:var(--ink)">
             <a href="#" aria-label="LinkedIn" style="border-color:var(--line)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.2c0-1.48-.03-3.4-2.07-3.4-2.07 0-2.39 1.62-2.39 3.29V21h-4V9Z"/></svg></a>
