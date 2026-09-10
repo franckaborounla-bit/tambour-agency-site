@@ -176,7 +176,7 @@ fs.writeFileSync(
 
 // _redirects : chaque lien de campagne /b/{slug} doit servir le gabarit
 // b.html, qui lit le slug dans l'URL et charge la campagne via l'API.
-fs.writeFileSync(path.join(DIST, "_redirects"), "/b/*  /b.html  200\n");
+fs.writeFileSync(path.join(DIST, "_redirects"), "/b/*  /b  200\n");
 
 // simple 404
 fs.writeFileSync(
