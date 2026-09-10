@@ -70,6 +70,19 @@ module.exports = function () {
     </div>
   </section>
 
+  <section class="section section-cream">
+    <div class="container">
+      <div class="cta-banner" data-reveal style="text-align:left; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between">
+        <div style="max-width:60ch">
+          <p class="eyebrow" style="color:var(--gold)">Nouveau</p>
+          <h2>Créez le badge photo de votre événement</h2>
+          <p class="lede" style="margin-top:10px">Un cadre à vos couleurs, un lien à partager, et chaque participant génère son propre badge en quelques secondes. Gratuit pendant la phase de lancement.</p>
+        </div>
+        <a href="/badges.html" class="btn btn-primary" style="white-space:nowrap">Découvrir l'outil de badges</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="cta-banner" data-reveal>

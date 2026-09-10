@@ -91,6 +91,42 @@ const PAGES = [
     description: "Mentions légales et politique de confidentialité de Tambour Agency.",
     content: require("./src/pages/mentions-legales.js"),
   },
+  {
+    file: "badges.html",
+    title: "Badges événementiels | Tambour Agency",
+    description: "Créez un cadre photo pour votre événement et laissez vos participants générer leur badge en quelques secondes.",
+    content: require("./src/pages/badges.js"),
+  },
+  {
+    file: "badges-inscription.html",
+    title: "Créer mon compte | Badges Tambour Agency",
+    description: "Créez votre compte gratuit pour lancer vos campagnes de badges événementiels avec Tambour Agency.",
+    content: require("./src/pages/badges-inscription.js"),
+  },
+  {
+    file: "badges-connexion.html",
+    title: "Connexion | Badges Tambour Agency",
+    description: "Connectez-vous à votre tableau de bord de campagnes de badges Tambour Agency.",
+    content: require("./src/pages/badges-connexion.js"),
+  },
+  {
+    file: "badges-tableau-de-bord.html",
+    title: "Tableau de bord | Badges Tambour Agency",
+    description: "Gérez vos campagnes de badges et suivez le nombre de badges générés.",
+    content: require("./src/pages/badges-tableau-de-bord.js"),
+  },
+  {
+    file: "badges-nouvelle-campagne.html",
+    title: "Nouvelle campagne | Badges Tambour Agency",
+    description: "Créez une nouvelle campagne de badges événementiels avec votre propre cadre photo.",
+    content: require("./src/pages/badges-nouvelle-campagne.js"),
+  },
+  {
+    file: "b.html",
+    title: "Créez votre badge | Tambour Agency",
+    description: "Uploadez votre photo et générez votre badge personnalisé pour cet événement.",
+    content: require("./src/pages/b.js"),
+  },
 ];
 
 // Clean dist
@@ -128,13 +164,19 @@ fs.writeFileSync(
   "User-agent: *\nAllow: /\nSitemap: https://www.tambouragency.com/sitemap.xml\n"
 );
 const base = "https://www.tambouragency.com/";
-const urls = PAGES.map((p) => (p.file === "index.html" ? base : base + p.file));
+// b.html est un gabarit générique (une page réelle correspond à /b/{slug}),
+// on ne le référence donc pas dans le sitemap.
+const urls = PAGES.filter((p) => p.file !== "b.html").map((p) => (p.file === "index.html" ? base : base + p.file));
 fs.writeFileSync(
   path.join(DIST, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map((u) => `  <url><loc>${u}</loc></url>`)
     .join("\n")}\n</urlset>\n`
 );
+
+// _redirects : chaque lien de campagne /b/{slug} doit servir le gabarit
+// b.html, qui lit le slug dans l'URL et charge la campagne via l'API.
+fs.writeFileSync(path.join(DIST, "_redirects"), "/b/*  /b.html  200\n");
 
 // simple 404
 fs.writeFileSync(
