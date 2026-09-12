@@ -1,6 +1,6 @@
 const { ICONS } = require("../../build.js");
 const { illustration } = require("./actualites.js");
-const { PROJECTS, galleryAttrs, CAT_LABEL } = require("./_projects-data.js");
+const { renderWorkCard } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -89,18 +89,7 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        ${["branding", "excellence-awards", "automatisation"]
-          .map((key, i) => {
-            const p = PROJECTS[key];
-            return `<div class="work-card" data-reveal data-reveal-delay="${i}" ${galleryAttrs(key)}>
-          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:center"></div>
-          <div class="work-info">
-            <div><span class="work-tag">${CAT_LABEL[p.cat]}</span><h3>${p.title}</h3></div>
-            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
-          </div>
-        </div>`;
-          })
-          .join("\n")}
+        ${["branding", "excellence-awards", "ia-generative"].map((key, i) => renderWorkCard(key, { delay: i })).join("\n")}
       </div>
     </div>
   </section>

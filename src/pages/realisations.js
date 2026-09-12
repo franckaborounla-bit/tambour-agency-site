@@ -1,5 +1,4 @@
-const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
-const { ICONS } = require("../../build.js");
+const { PROJECTS, renderWorkCard } = require("./_projects-data.js");
 
 const POS = {
   branding: "center",
@@ -29,18 +28,7 @@ module.exports = function () {
         <button class="filter-btn" data-filter="ia">Ingénierie IA</button>
       </div>
       <div class="grid-3">
-        ${items
-          .map((key, i) => {
-            const p = PROJECTS[key];
-            return `<div class="work-card" data-cat="${p.cat}" data-reveal data-reveal-delay="${i % 3}" ${galleryAttrs(key)}>
-          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:${POS[key] || "center"}"></div>
-          <div class="work-info">
-            <div><span class="work-tag">${p.tag}</span><h3>${p.title}</h3></div>
-            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
-          </div>
-        </div>`;
-          })
-          .join("\n")}
+        ${items.map((key, i) => renderWorkCard(key, { delay: i % 3, pos: POS[key] || "center" })).join("\n")}
       </div>
     </div>
   </section>

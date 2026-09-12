@@ -195,15 +195,15 @@
     lb.innerHTML =
       '<button class="lightbox-close" aria-label="Fermer">×</button>' +
       '<div class="lightbox-stage">' +
-      '<button class="lightbox-arrow prev" aria-label="Image précédente">‹</button>' +
-      '<img alt="" />' +
-      '<button class="lightbox-arrow next" aria-label="Image suivante">›</button>' +
+      '<button class="lightbox-arrow prev" aria-label="Média précédent">‹</button>' +
+      '<div class="lightbox-media"></div>' +
+      '<button class="lightbox-arrow next" aria-label="Média suivant">›</button>' +
       "</div>" +
       '<div class="lightbox-meta"><span class="tag"></span><h3></h3><span class="count"></span></div>' +
       '<div class="lightbox-thumbs"></div>';
     document.body.appendChild(lb);
 
-    var stageImg = lb.querySelector(".lightbox-stage img");
+    var mediaWrap = lb.querySelector(".lightbox-media");
     var metaTag = lb.querySelector(".lightbox-meta .tag");
     var metaTitle = lb.querySelector(".lightbox-meta h3");
     var metaCount = lb.querySelector(".lightbox-meta .count");
@@ -214,9 +214,28 @@
 
     var current = { images: [], index: 0, tag: "", title: "" };
 
+    function isVideo(src) {
+      return /\.mp4($|\?)/i.test(src);
+    }
+
     function render() {
       var total = current.images.length;
-      stageImg.src = current.images[current.index];
+      var src = current.images[current.index];
+      mediaWrap.innerHTML = "";
+      var el;
+      if (isVideo(src)) {
+        el = document.createElement("video");
+        el.src = src;
+        el.controls = true;
+        el.playsInline = true;
+        el.autoplay = true;
+      } else {
+        el = document.createElement("img");
+        el.src = src;
+        el.alt = current.title || "";
+      }
+      mediaWrap.appendChild(el);
+
       metaTag.textContent = current.tag;
       metaTitle.textContent = current.title;
       metaCount.textContent = total > 1 ? current.index + 1 + " / " + total : "";
@@ -224,9 +243,17 @@
       btnNext.style.display = total > 1 ? "flex" : "none";
       thumbsWrap.style.display = total > 1 ? "flex" : "none";
       if (total > 1 && !thumbsWrap.children.length) {
-        current.images.forEach(function (src, i) {
-          var t = document.createElement("img");
-          t.src = src;
+        current.images.forEach(function (thumbSrc, i) {
+          var t;
+          if (isVideo(thumbSrc)) {
+            t = document.createElement("video");
+            t.src = thumbSrc;
+            t.muted = true;
+            t.preload = "metadata";
+          } else {
+            t = document.createElement("img");
+            t.src = thumbSrc;
+          }
           t.addEventListener("click", function () {
             current.index = i;
             render();
@@ -249,6 +276,7 @@
     function close() {
       lb.classList.remove("is-open");
       document.body.style.overflow = "";
+      mediaWrap.innerHTML = "";
     }
     function step(dir) {
       var total = current.images.length;

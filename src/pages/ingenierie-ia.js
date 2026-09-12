@@ -1,5 +1,5 @@
 const { ICONS } = require("../../build.js");
-const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
+const { renderWorkCard } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -56,21 +56,16 @@ module.exports = function () {
 
   <section class="section section-cream">
     <div class="container">
-      <div class="grid-2" style="align-items:center; gap:60px">
-        <div class="work-card" data-reveal style="aspect-ratio:4/3" ${galleryAttrs("automatisation")}>
-          <div class="ph" style="background-image:url(${PROJECTS.automatisation.images[0]}); background-size:cover; background-position:center"></div>
-          <div class="work-info"><div><span class="work-tag">Automatisation</span><h3>Automatisation d'un flux métier</h3></div></div>
-        </div>
-        <div data-reveal data-reveal-delay="1">
+      <div class="section-head split" data-reveal>
+        <div>
           <p class="eyebrow">Cas d'usage</p>
-          <h2>Un exemple concret d'impact</h2>
-          <p>Sur ce projet, nous avons automatisé un enchaînement de tâches manuelles répétitives, jusque-là chronophages pour l'équipe. Résultat : des délais de traitement divisés, des erreurs humaines éliminées, et des collaborateurs enfin recentrés sur des missions à forte valeur ajoutée.</p>
-          <div class="mini-graph" aria-hidden="true">
-            <span style="height:35%"></span><span style="height:45%"></span><span style="height:40%"></span><span style="height:60%"></span><span style="height:78%"></span><span style="height:92%"></span>
-          </div>
-          <p style="font-size:.85rem; color:var(--grey); font-weight:600; margin-top:8px">Évolution du temps gagné, mois après mois</p>
-          <a href="/contact.html" class="btn btn-dark" style="margin-top:22px">Discuter de votre cas d'usage</a>
+          <h2>Des projets IA concrets</h2>
+          <p style="max-width:60ch; margin-top:10px">D'un flux métier automatisé à nos propres créations en IA générative (texte, image, vidéo) : un aperçu de ce que nous produisons avec ces outils, au quotidien.</p>
         </div>
+        <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
+      </div>
+      <div class="grid-2">
+        ${["automatisation", "ia-generative"].map((key, i) => renderWorkCard(key, { delay: i, aspect: "4/3" })).join("\n")}
       </div>
     </div>
   </section>
