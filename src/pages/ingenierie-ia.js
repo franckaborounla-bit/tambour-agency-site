@@ -1,4 +1,5 @@
 const { ICONS } = require("../../build.js");
+const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -56,9 +57,9 @@ module.exports = function () {
   <section class="section section-cream">
     <div class="container">
       <div class="grid-2" style="align-items:center; gap:60px">
-        <div class="work-card" data-reveal style="aspect-ratio:4/3">
-          <div class="ph" style="background-image:url(/assets/img/realisations/ia/automatisation.jpg); background-size:cover; background-position:center"></div>
-          <div class="work-info"><span class="work-tag">Automatisation</span><h3>Automatisation d'un flux métier</h3></div>
+        <div class="work-card" data-reveal style="aspect-ratio:4/3" ${galleryAttrs("automatisation")}>
+          <div class="ph" style="background-image:url(${PROJECTS.automatisation.images[0]}); background-size:cover; background-position:center"></div>
+          <div class="work-info"><div><span class="work-tag">Automatisation</span><h3>Automatisation d'un flux métier</h3></div></div>
         </div>
         <div data-reveal data-reveal-delay="1">
           <p class="eyebrow">Cas d'usage</p>

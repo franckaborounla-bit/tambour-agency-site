@@ -184,4 +184,96 @@
         });
     });
   });
+
+  /* ---------- Galerie réalisations (lightbox) ---------- */
+  (function () {
+    var triggers = document.querySelectorAll("[data-gallery]");
+    if (!triggers.length) return;
+
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML =
+      '<button class="lightbox-close" aria-label="Fermer">×</button>' +
+      '<div class="lightbox-stage">' +
+      '<button class="lightbox-arrow prev" aria-label="Image précédente">‹</button>' +
+      '<img alt="" />' +
+      '<button class="lightbox-arrow next" aria-label="Image suivante">›</button>' +
+      "</div>" +
+      '<div class="lightbox-meta"><span class="tag"></span><h3></h3><span class="count"></span></div>' +
+      '<div class="lightbox-thumbs"></div>';
+    document.body.appendChild(lb);
+
+    var stageImg = lb.querySelector(".lightbox-stage img");
+    var metaTag = lb.querySelector(".lightbox-meta .tag");
+    var metaTitle = lb.querySelector(".lightbox-meta h3");
+    var metaCount = lb.querySelector(".lightbox-meta .count");
+    var thumbsWrap = lb.querySelector(".lightbox-thumbs");
+    var btnPrev = lb.querySelector(".lightbox-arrow.prev");
+    var btnNext = lb.querySelector(".lightbox-arrow.next");
+    var btnClose = lb.querySelector(".lightbox-close");
+
+    var current = { images: [], index: 0, tag: "", title: "" };
+
+    function render() {
+      var total = current.images.length;
+      stageImg.src = current.images[current.index];
+      metaTag.textContent = current.tag;
+      metaTitle.textContent = current.title;
+      metaCount.textContent = total > 1 ? current.index + 1 + " / " + total : "";
+      btnPrev.style.display = total > 1 ? "flex" : "none";
+      btnNext.style.display = total > 1 ? "flex" : "none";
+      thumbsWrap.style.display = total > 1 ? "flex" : "none";
+      if (total > 1 && !thumbsWrap.children.length) {
+        current.images.forEach(function (src, i) {
+          var t = document.createElement("img");
+          t.src = src;
+          t.addEventListener("click", function () {
+            current.index = i;
+            render();
+          });
+          thumbsWrap.appendChild(t);
+        });
+      }
+      Array.prototype.forEach.call(thumbsWrap.children, function (t, i) {
+        t.classList.toggle("is-active", i === current.index);
+      });
+    }
+
+    function open(images, tag, title, startIndex) {
+      current = { images: images, index: startIndex || 0, tag: tag, title: title };
+      thumbsWrap.innerHTML = "";
+      render();
+      lb.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+    function close() {
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+    function step(dir) {
+      var total = current.images.length;
+      current.index = (current.index + dir + total) % total;
+      render();
+    }
+
+    triggers.forEach(function (el) {
+      el.addEventListener("click", function () {
+        var images;
+        try { images = JSON.parse(el.getAttribute("data-gallery")); } catch (e) { images = []; }
+        if (!images.length) return;
+        open(images, el.getAttribute("data-gallery-tag") || "", el.getAttribute("data-gallery-title") || "", 0);
+      });
+    });
+
+    btnPrev.addEventListener("click", function () { step(-1); });
+    btnNext.addEventListener("click", function () { step(1); });
+    btnClose.addEventListener("click", close);
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    });
+  })();
 })();

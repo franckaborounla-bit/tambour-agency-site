@@ -1,4 +1,5 @@
 const { ICONS } = require("../../build.js");
+const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -70,10 +71,20 @@ module.exports = function () {
         <div><p class="eyebrow">Réalisations</p><h2>Événements produits par l'agence</h2></div>
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
-      <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph" style="background-image:url(/assets/img/realisations/event/excellence-awards-1.jpg); background-size:cover; background-position:center 30%"></div><div class="work-info"><span class="work-tag">Cérémonie</span><h3>Excellence Awards</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background-image:url(/assets/img/realisations/event/excellence-awards-2.jpg); background-size:cover; background-position:center 30%"></div><div class="work-info"><span class="work-tag">Cérémonie</span><h3>Excellence Awards, remise des prix</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background-image:url(/assets/img/realisations/event/zoom-festi-africa.jpg); background-size:cover; background-position:center 25%"></div><div class="work-info"><span class="work-tag">Festival</span><h3>Zoom Festi Africa</h3></div></div>
+      <div class="grid-2">
+        ${["excellence-awards", "zoom-festi-africa"]
+          .map((key, i) => {
+            const p = PROJECTS[key];
+            const pos = key === "excellence-awards" ? "center 30%" : "center 25%";
+            return `<div class="work-card" data-reveal data-reveal-delay="${i}" ${galleryAttrs(key)}>
+          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:${pos}"></div>
+          <div class="work-info">
+            <div><span class="work-tag">${p.tag}</span><h3>${p.title}</h3></div>
+            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
+          </div>
+        </div>`;
+          })
+          .join("\n")}
       </div>
     </div>
   </section>

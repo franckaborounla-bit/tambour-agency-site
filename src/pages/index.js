@@ -1,5 +1,6 @@
 const { ICONS } = require("../../build.js");
 const { illustration } = require("./actualites.js");
+const { PROJECTS, galleryAttrs, CAT_LABEL } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -88,9 +89,18 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph" style="background-image:url(/assets/img/realisations/comm/branding-identite.jpg); background-size:cover; background-position:center"></div><div class="work-info"><span class="work-tag">Communication 360°</span><h3>Identité de marque</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background-image:url(/assets/img/realisations/event/excellence-awards-1.jpg); background-size:cover; background-position:center 30%"></div><div class="work-info"><span class="work-tag">Événementiel</span><h3>Excellence Awards</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background-image:url(/assets/img/realisations/ia/automatisation.jpg); background-size:cover; background-position:center"></div><div class="work-info"><span class="work-tag">Ingénierie IA</span><h3>Automatisation d'un flux métier</h3></div></div>
+        ${["branding", "excellence-awards", "automatisation"]
+          .map((key, i) => {
+            const p = PROJECTS[key];
+            return `<div class="work-card" data-reveal data-reveal-delay="${i}" ${galleryAttrs(key)}>
+          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:center"></div>
+          <div class="work-info">
+            <div><span class="work-tag">${CAT_LABEL[p.cat]}</span><h3>${p.title}</h3></div>
+            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
+          </div>
+        </div>`;
+          })
+          .join("\n")}
       </div>
     </div>
   </section>

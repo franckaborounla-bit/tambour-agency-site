@@ -1,13 +1,16 @@
+const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
+const { ICONS } = require("../../build.js");
+
+const POS = {
+  branding: "center",
+  magazine: "center",
+  "excellence-awards": "center 30%",
+  "zoom-festi-africa": "center 25%",
+  automatisation: "center",
+};
+
 module.exports = function () {
-  const items = [
-    ["comm", "Communication 360°", "Identité de marque", "/assets/img/realisations/comm/branding-identite.jpg", "center"],
-    ["event", "Événementiel", "Excellence Awards", "/assets/img/realisations/event/excellence-awards-1.jpg", "center 30%"],
-    ["ia", "Ingénierie IA", "Automatisation d'un flux métier", "/assets/img/realisations/ia/automatisation.jpg", "center"],
-    ["comm", "Communication 360°", "Charte graphique & supports", "/assets/img/realisations/comm/branding-declinaisons.jpg", "center"],
-    ["event", "Événementiel", "Excellence Awards, remise des prix", "/assets/img/realisations/event/excellence-awards-2.jpg", "center 30%"],
-    ["comm", "Communication 360°", "Conception de magazine", "/assets/img/realisations/comm/magazine-edition.jpg", "center"],
-    ["event", "Événementiel", "Zoom Festi Africa", "/assets/img/realisations/event/zoom-festi-africa.jpg", "center 25%"],
-  ];
+  const items = Object.keys(PROJECTS);
   return `
   <section class="page-hero">
     <div class="container">
@@ -27,12 +30,16 @@ module.exports = function () {
       </div>
       <div class="grid-3">
         ${items
-          .map(
-            ([cat, tag, title, img, pos], i) => `<div class="work-card" data-cat="${cat}" data-reveal data-reveal-delay="${i % 3}">
-          <div class="ph" style="background-image:url(${img}); background-size:cover; background-position:${pos}"></div>
-          <div class="work-info"><span class="work-tag">${tag}</span><h3>${title}</h3></div>
-        </div>`
-          )
+          .map((key, i) => {
+            const p = PROJECTS[key];
+            return `<div class="work-card" data-cat="${p.cat}" data-reveal data-reveal-delay="${i % 3}" ${galleryAttrs(key)}>
+          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:${POS[key] || "center"}"></div>
+          <div class="work-info">
+            <div><span class="work-tag">${p.tag}</span><h3>${p.title}</h3></div>
+            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
+          </div>
+        </div>`;
+          })
           .join("\n")}
       </div>
     </div>
