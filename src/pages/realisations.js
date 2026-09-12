@@ -1,14 +1,12 @@
 module.exports = function () {
   const items = [
-    ["comm", "Communication 360°", "Projet Exemple 01 : Lancement de marque", ""],
-    ["event", "Événementiel", "Projet Exemple 02 : Conférence annuelle", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["ia", "Ingénierie IA", "Projet Exemple 03 : Agent IA sur-mesure", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 04 : Campagne réseaux sociaux", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 05 : Séminaire d'entreprise", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 06 : Automatisation service client", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 07 : Film de marque", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 08 : Lancement produit grand public", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 09 : Tableau de bord décisionnel", "linear-gradient(160deg,#F5A423,#E45327)"],
+    ["comm", "Communication 360°", "Identité de marque", "/assets/img/realisations/comm/branding-identite.jpg", "center"],
+    ["event", "Événementiel", "Excellence Awards", "/assets/img/realisations/event/excellence-awards-1.jpg", "center 30%"],
+    ["ia", "Ingénierie IA", "Automatisation d'un flux métier", "/assets/img/realisations/ia/automatisation.jpg", "center"],
+    ["comm", "Communication 360°", "Charte graphique & supports", "/assets/img/realisations/comm/branding-declinaisons.jpg", "center"],
+    ["event", "Événementiel", "Excellence Awards, remise des prix", "/assets/img/realisations/event/excellence-awards-2.jpg", "center 30%"],
+    ["comm", "Communication 360°", "Conception de magazine", "/assets/img/realisations/comm/magazine-edition.jpg", "center"],
+    ["event", "Événementiel", "Zoom Festi Africa", "/assets/img/realisations/event/zoom-festi-africa.jpg", "center 25%"],
   ];
   return `
   <section class="page-hero">
@@ -30,8 +28,8 @@ module.exports = function () {
       <div class="grid-3">
         ${items
           .map(
-            ([cat, tag, title, bg], i) => `<div class="work-card" data-cat="${cat}" data-reveal data-reveal-delay="${i % 3}">
-          <div class="ph" ${bg ? `style="background:${bg}"` : ""}></div>
+            ([cat, tag, title, img, pos], i) => `<div class="work-card" data-cat="${cat}" data-reveal data-reveal-delay="${i % 3}">
+          <div class="ph" style="background-image:url(${img}); background-size:cover; background-position:${pos}"></div>
           <div class="work-info"><span class="work-tag">${tag}</span><h3>${title}</h3></div>
         </div>`
           )

@@ -62,27 +62,6 @@ module.exports = function () {
     </div>
   </section>
 
-  <section class="section section-cream">
-    <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Équipe</p>
-        <h2>Les personnes derrière le rythme</h2>
-        <p class="lede">Une équipe pluridisciplinaire de créatifs, de producteurs événementiels et d'ingénieurs IA.</p>
-      </div>
-      <div class="team-grid">
-        ${[1, 2, 3, 4]
-          .map(
-            (i) => `<div class="team-card" data-reveal data-reveal-delay="${i}">
-          <div class="avatar"></div>
-          <h3>Nom Prénom</h3>
-          <span>Fonction à définir</span>
-        </div>`
-          )
-          .join("\n")}
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="cta-banner" data-reveal>

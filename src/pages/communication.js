@@ -1,10 +1,12 @@
+const { ICONS } = require("../../build.js");
+
 module.exports = function () {
   return `
   <section class="page-hero">
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Communication 360°</b></div>
       <h1>Une communication qui porte, du positionnement à la production.</h1>
-      <p class="lede">Stratégie de marque, création de contenus, réseaux sociaux, production audiovisuelle et relations publiques : un accompagnement complet, cohérent, mesurable.</p>
+      <p class="lede">Vous ne payez pas pour de « belles images » : vous investissez pour être vu, compris et choisi. Notre pôle Communication 360° transforme votre prise de parole en visibilité, votre visibilité en confiance, et votre confiance en clients.</p>
       <div class="hero-actions"><a href="/contact.html" class="btn btn-primary">Demander un devis</a></div>
     </div>
   </section>
@@ -17,17 +19,32 @@ module.exports = function () {
       </div>
       <div class="grid-3">
         ${[
-          ["Stratégie de marque", "Positionnement, plateforme de marque, identité verbale et visuelle."],
-          ["Création de contenus", "Textes, visuels et formats adaptés à chaque canal et chaque audience."],
-          ["Identité visuelle", "Logotype, charte graphique, déclinaisons print et digital."],
-          ["Réseaux sociaux", "Stratégie éditoriale, community management, animation des communautés."],
-          ["Production audiovisuelle", "Films de marque, formats courts, captation et montage."],
-          ["Achat média & RP", "Planification média, relations presse et relations publiques."],
+          ["Stratégie de marque", "Un positionnement clair qui vous différencie durablement de la concurrence et donne envie de vous choisir, vous plutôt qu'un autre."],
+          ["Création de contenus", "Des contenus qui arrêtent le scroll, retiennent l'attention et poussent à l'action : suivre, contacter, acheter."],
+          ["Identité visuelle", "Une image qui inspire confiance dès la première seconde, sur tous vos supports, print comme digital."],
+          ["Réseaux sociaux", "Une communauté qui grandit, s'engage et se transforme progressivement en clientèle fidèle."],
+          ["Production audiovisuelle", "Des films et formats qui marquent les esprits, se partagent naturellement et font parler de votre marque."],
+          ["Achat média & RP", "Une visibilité qui touche les bonnes personnes au bon moment, pour un budget média optimisé et mesurable."],
         ]
           .map(
             ([t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i % 3}" style="min-height:220px"><h3>${t}</h3><p>${d}</p></div>`
           )
           .join("\n")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow" style="color:var(--gold)">Ce que ça change concrètement</p>
+        <h2 style="color:#fff">Une communication qui se mesure, pas seulement qui se voit</h2>
+      </div>
+      <div class="kpi-band">
+        <div class="kpi-card" data-reveal><div class="kpi-ic">${ICONS.eye}</div><div class="num" data-count="65" data-suffix="%">0</div><div class="label">de visibilité en plus en moyenne sur les 6 premiers mois</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="1"><div class="kpi-ic">${ICONS.users}</div><div class="num" data-count="3" data-suffix="x">0</div><div class="label">d'engagement en plus sur les réseaux sociaux</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="2"><div class="kpi-ic">${ICONS.growth}</div><div class="num" data-count="40" data-suffix="%">0</div><div class="label">de notoriété de marque gagnée grâce à une stratégie cohérente</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="3"><div class="kpi-ic">${ICONS.target}</div><div class="num" data-count="100" data-suffix="%">0</div><div class="label">des contenus alignés à vos objectifs commerciaux</div></div>
       </div>
     </div>
   </section>
@@ -54,18 +71,22 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph"></div><div class="work-info"><span class="work-tag">Branding</span><h3>Projet Exemple 01</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Contenu</span><h3>Projet Exemple 02</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Audiovisuel</span><h3>Projet Exemple 03</h3></div></div>
+        <div class="work-card" data-reveal><div class="ph" style="background-image:url(/assets/img/realisations/comm/branding-identite.jpg); background-size:cover; background-position:center"></div><div class="work-info"><span class="work-tag">Branding</span><h3>Identité de marque</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background-image:url(/assets/img/realisations/comm/branding-declinaisons.jpg); background-size:cover; background-position:center"></div><div class="work-info"><span class="work-tag">Déclinaisons</span><h3>Charte graphique &amp; supports</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background-image:url(/assets/img/realisations/comm/magazine-edition.jpg); background-size:cover; background-position:center"></div><div class="work-info"><span class="work-tag">Édition</span><h3>Conception de magazine</h3></div></div>
       </div>
     </div>
   </section>
 
   <section class="section section-cream">
     <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Témoignages</p>
+        <h2>Ce que nos clients Communication en disent</h2>
+      </div>
       <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur le pôle Communication 360°. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Lancer une marque de beauté 100 % assumée demandait une communication à la hauteur de mon ambition. Tambour Agency a su révéler l'identité de LONNA AUTHENTIK avec une justesse rare : aujourd'hui, mes clientes n'achètent pas juste un produit, elles adhèrent à une histoire. »</p><div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/falonne-adandedjan.jpg); background-size:cover; background-position:center 15%"></div><div><b>Falonne Adandedjan</b><span>Promotrice, LONNA AUTHENTIK</span></div></div></div>
+        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Avant Tambour Agency, notre combat pour la nutrition des familles vulnérables restait invisible. Aujourd'hui, chaque campagne trouve les mots justes et touche les bonnes personnes : nos actions sont vues, comprises, soutenues. »</p><div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/helena-capochichi.jpg); background-size:cover; background-position:center"></div><div><b>Helena Capochichi</b><span>Présidente, ONG FND</span></div></div></div>
       </div>
     </div>
   </section>

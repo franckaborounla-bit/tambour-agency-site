@@ -26,6 +26,13 @@ const ICONS = {
   mail: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   phone: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 4h3l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   pin: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  growth: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17l6-6 4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  coins: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="9" cy="7" rx="6" ry="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7v4c0 1.77 2.69 3.2 6 3.2s6-1.43 6-3.2V7" stroke="currentColor" stroke-width="1.6"/><path d="M3 11v4c0 1.77 2.69 3.2 6 3.2s6-1.43 6-3.2v-4" stroke="currentColor" stroke-width="1.6"/><path d="M15 10.3c3.3.2 6 1.6 6 3.2s-2.69 3.2-6 3.2c-.34 0-.67-.01-1-.04M15 14.3c3.3.2 6 1.6 6 3.2s-2.69 3.2-6 3.2-6-1.43-6-3.2" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  target: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>`,
+  users: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="17.5" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 20c.2-2.9 1.8-4.9 4-5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  bolt: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  eye: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
 };
 
 function socialIcons() {
@@ -100,6 +107,12 @@ function footer() {
           <a href="/evenementiel.html">Organisation événementielle</a>
           <a href="/ingenierie-ia.html">Ingénierie IA</a>
           <a href="/ingenierie-ia.html#formation">Formation IA &amp; digital</a>
+        </div>
+        <div>
+          <h4>Siège &amp; contact</h4>
+          <div class="footer-contact-item"><span class="fc-ic">${ICONS.pin}</span><span>Cocody, Abidjan, Côte d'Ivoire</span></div>
+          <div class="footer-contact-item"><span class="fc-ic">${ICONS.phone}</span><span><a href="tel:+2250714508289">+225 07 14 50 82 89</a><br/><a href="tel:+2290197334589">+229 01 97 33 45 89</a></span></div>
+          <div class="footer-contact-item"><span class="fc-ic">${ICONS.mail}</span><span><a href="mailto:tambouragency@gmail.com">tambouragency@gmail.com</a></span></div>
         </div>
         <div>
           <h4>Restons connectés</h4>

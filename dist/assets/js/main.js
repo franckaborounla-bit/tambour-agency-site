@@ -1,10 +1,17 @@
 // =========================================================
 // TAMBOUR AGENCY — main.js
-// Nav, reveal-on-scroll, compteurs, hero canvas "pulsation",
+// Nav, reveal-on-scroll, compteurs, hero vidéo,
 // curseur premium, formulaires (contact / formation)
 // =========================================================
 (function () {
   "use strict";
+
+  /* Clé d'accès Web3Forms (gratuit, sans backend) : à remplacer par la clé
+     reçue par email après inscription sur https://web3forms.com avec
+     l'adresse Gmail du site. Les messages envoyés depuis les formulaires
+     du site (contact, formation, newsletters) seront alors livrés dans
+     cette boîte Gmail. */
+  var WEB3FORMS_ACCESS_KEY = "359a00f4-d44d-4d11-ba26-f82b2fd07714";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -116,94 +123,65 @@
     });
   }
 
-  /* ---------- Hero canvas — visuel "pulsation" (placeholder vidéo) ----------
-     À REMPLACER : dès que la vidéo de marque définitive est disponible,
-     remplacer le <canvas id="heroCanvas"> par une balise <video autoplay muted loop playsinline>
-     pointant vers /assets/video/hero.mp4 (+ .webm). Voir DEPLOY.md. */
-  var canvas = document.getElementById("heroCanvas");
-  if (canvas) {
-    var ctx = canvas.getContext("2d");
-    var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var particles = [];
-    var COLORS = ["#E45327", "#F5A423", "#ffffff"];
-
-    function resize() {
-      w = canvas.offsetWidth; h = canvas.offsetHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  /* ---------- Hero vidéo ----------
+     Vidéo de marque en lecture automatique, muette et en boucle — jouée
+     dans tous les cas, y compris avec "réduire les animations" activé
+     (pratique courante pour une vidéo de marque en hero). Seules les
+     animations décoratives secondaires (reveal, curseur, etc.) respectent
+     prefers-reduced-motion ailleurs dans ce fichier. */
+  var heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
     }
-    function initParticles() {
-      particles = [];
-      var count = Math.round((w * h) / 26000);
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: 1 + Math.random() * 2.4,
-          speed: 0.15 + Math.random() * 0.4,
-          phase: Math.random() * Math.PI * 2,
-          color: COLORS[i % COLORS.length],
-        });
-      }
-    }
-    resize(); initParticles();
-    window.addEventListener("resize", function () { resize(); initParticles(); });
-
-    var t = 0;
-    function drawRings() {
-      var cx = w * 0.72, cy = h * 0.42;
-      for (var i = 0; i < 4; i++) {
-        var progress = ((t * 0.00035) + i / 4) % 1;
-        var radius = progress * Math.max(w, h) * 0.62;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(245,164,35," + (0.35 * (1 - progress)) + ")";
-        ctx.lineWidth = 1.4;
-        ctx.stroke();
-      }
-    }
-    function drawParticles() {
-      particles.forEach(function (p) {
-        var yy = p.y + Math.sin(t * 0.001 * p.speed + p.phase) * 18;
-        ctx.beginPath();
-        ctx.arc(p.x, yy, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.55;
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      });
-    }
-    function frame() {
-      t += 16;
-      ctx.clearRect(0, 0, w, h);
-      var grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, "#1f1912");
-      grad.addColorStop(1, "#17130f");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-      drawRings();
-      drawParticles();
-      if (!reduceMotion) requestAnimationFrame(frame);
-    }
-    frame();
   }
 
-  /* ---------- Forms: contact / devis / formation ----------
-     Pas de backend par défaut sur un site statique Cloudflare Pages.
-     Ce script simule un envoi réussi côté client après validation.
-     Pour un envoi réel : brancher une Cloudflare Pages Function (/functions/api/*)
-     ou un service tiers (Web3Forms, Formspree...). Voir DEPLOY.md. */
+  /* ---------- Forms: contact / devis / formation / newsletter ----------
+     Envoi réel via Web3Forms (service tiers gratuit, sans backend) :
+     chaque soumission est transmise par email à la boîte Gmail associée
+     à la clé WEB3FORMS_ACCESS_KEY définie en haut de ce fichier. */
+  var formSubjects = {
+    contact: "Nouveau message - Formulaire de contact",
+    formation: "Nouvelle demande de formation",
+    "newsletter-actu": "Nouvelle inscription newsletter (page Actualités)",
+    "newsletter-footer": "Nouvelle inscription newsletter (pied de page)",
+  };
   document.querySelectorAll("form[data-form]").forEach(function (form) {
+    var formName = form.getAttribute("data-form");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var honeypot = form.querySelector('[name="botcheck"]');
+      if (honeypot && honeypot.checked) return;
+
       var btn = form.querySelector("button[type=submit]");
+      var originalLabel = btn ? btn.innerHTML : "";
       var success = form.parentElement.querySelector(".form-success");
+
+      var data = new FormData(form);
+      data.append("access_key", WEB3FORMS_ACCESS_KEY);
+      data.append("subject", formSubjects[formName] || "Nouveau message - Site Tambour Agency");
+      data.append("from_name", "Site Tambour Agency");
+
       if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours..."; }
-      setTimeout(function () {
-        form.style.display = "none";
-        if (success) success.classList.add("show");
-        else alert("Merci, votre demande a bien été reçue.");
-      }, 700);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message || "Erreur d'envoi");
+          form.reset();
+          form.style.display = "none";
+          if (success) success.classList.add("show");
+          else alert("Merci, votre demande a bien été reçue.");
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
+          alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou écrivez-nous directement à tambouragency@gmail.com.");
+        });
     });
   });
 })();

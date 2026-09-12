@@ -1,10 +1,12 @@
+const { ICONS } = require("../../build.js");
+
 module.exports = function () {
   return `
   <section class="page-hero">
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Organisation événementielle</b></div>
       <h1>Des événements pensés comme des expériences de marque.</h1>
-      <p class="lede">De la conception à la régie technique du jour J, nous produisons des événements corporate, institutionnels et grand public qui marquent les esprits.</p>
+      <p class="lede">Un événement réussi ne se contente pas de rassembler du monde : il crée un souvenir, renforce votre crédibilité et génère des opportunités concrètes pour votre marque. De la conception à la régie technique du jour J, nous produisons des événements qui marquent les esprits et qui rapportent.</p>
       <div class="hero-actions"><a href="/contact.html" class="btn btn-primary">Demander un devis</a></div>
     </div>
   </section>
@@ -17,17 +19,32 @@ module.exports = function () {
       </div>
       <div class="grid-3">
         ${[
-          ["Lancements de produits", "Mise en scène et scénarisation d'un temps fort autour de votre nouveauté."],
-          ["Séminaires & conventions", "Organisation logistique complète pour vos équipes et vos réseaux."],
-          ["Conférences & sommets", "Programmation, intervenants, régie technique et expérience participant."],
-          ["Événements grand public", "Activations et expériences immersives pour toucher un large public."],
-          ["Événements institutionnels", "Cérémonies, inaugurations et temps forts protocolaires."],
-          ["Régie technique", "Son, lumière, vidéo et diffusion : une exécution technique sans faille."],
+          ["Lancements de produits", "Une mise en scène marquante qui transforme votre nouveauté en véritable événement médiatique."],
+          ["Séminaires & conventions", "Une logistique sans faille qui laisse vos équipes se concentrer sur l'essentiel : le contenu et les échanges."],
+          ["Conférences & sommets", "Une expérience participant soignée qui valorise votre image auprès de décideurs et de partenaires clés."],
+          ["Événements grand public", "Des activations immersives qui créent un engouement réel et une visibilité durable pour votre marque."],
+          ["Événements institutionnels", "Des cérémonies et inaugurations à la hauteur de votre crédibilité, sans le moindre imprévu protocolaire."],
+          ["Régie technique", "Son, lumière, vidéo et diffusion : une exécution technique irréprochable, du premier au dernier applaudissement."],
         ]
           .map(
             ([t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i % 3}" style="min-height:220px"><h3>${t}</h3><p>${d}</p></div>`
           )
           .join("\n")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow" style="color:var(--gold)">Ce que ça change concrètement</p>
+        <h2 style="color:#fff">Un événement qui produit des résultats, pas seulement des souvenirs</h2>
+      </div>
+      <div class="kpi-band">
+        <div class="kpi-card" data-reveal><div class="kpi-ic">${ICONS.users}</div><div class="num" data-count="60" data-suffix="+">0</div><div class="label">événements produits avec zéro incident majeur</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="1"><div class="kpi-ic">${ICONS.target}</div><div class="num" data-count="100" data-suffix="%">0</div><div class="label">de nos événements livrés dans les délais annoncés</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="2"><div class="kpi-ic">${ICONS.growth}</div><div class="num" data-count="80" data-suffix="%">0</div><div class="label">de retombées médiatiques et sociales en plus après l'événement</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="3"><div class="kpi-ic">${ICONS.bolt}</div><div class="num" data-count="24" data-suffix="h/24">0</div><div class="label">de coordination terrain le jour J, sans imprévu qui vous échappe</div></div>
       </div>
     </div>
   </section>
@@ -54,18 +71,21 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph"></div><div class="work-info"><span class="work-tag">Lancement produit</span><h3>Projet Exemple 01</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Conférence</span><h3>Projet Exemple 02</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Séminaire</span><h3>Projet Exemple 03</h3></div></div>
+        <div class="work-card" data-reveal><div class="ph" style="background-image:url(/assets/img/realisations/event/excellence-awards-1.jpg); background-size:cover; background-position:center 30%"></div><div class="work-info"><span class="work-tag">Cérémonie</span><h3>Excellence Awards</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background-image:url(/assets/img/realisations/event/excellence-awards-2.jpg); background-size:cover; background-position:center 30%"></div><div class="work-info"><span class="work-tag">Cérémonie</span><h3>Excellence Awards, remise des prix</h3></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph" style="background-image:url(/assets/img/realisations/event/zoom-festi-africa.jpg); background-size:cover; background-position:center 25%"></div><div class="work-info"><span class="work-tag">Festival</span><h3>Zoom Festi Africa</h3></div></div>
       </div>
     </div>
   </section>
 
   <section class="section section-cream">
     <div class="container">
-      <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du client à insérer ici, un retour d'expérience sur un événement produit par Tambour Agency. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Témoignage</p>
+        <h2>Ce qu'en dit un organisateur exigeant</h2>
+      </div>
+      <div class="testi-track" style="grid-template-columns:1fr; max-width:640px; margin:0 auto">
+        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Organiser un événement pour des entrepreneurs exigeants ne laisse aucune place à l'approximation. Tambour Agency a orchestré chaque détail de SHEN - Vases d'Honneur avec une rigueur impressionnante, du concept à la régie technique. Le résultat : une édition dont tous nos participants parlent encore, et une agence sur qui je sais pouvoir compter les yeux fermés. »</p><div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/lambert-sourou.jpg); background-size:cover; background-position:center"></div><div><b>Lambert Sourou</b><span>PCO, SHEN - Vases d'Honneur</span></div></div></div>
       </div>
     </div>
   </section>

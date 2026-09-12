@@ -1,10 +1,12 @@
+const { ICONS } = require("../../build.js");
+
 module.exports = function () {
   return `
   <section class="page-hero">
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>Ingénierie IA</b></div>
-      <h1>L'intelligence artificielle mise au service de votre performance.</h1>
-      <p class="lede">Conseil, intégration de solutions IA et automatisation des processus, ainsi qu'un pôle formation pour faire monter en compétence vos équipes.</p>
+      <h1>L'intelligence artificielle qui augmente votre chiffre d'affaires.</h1>
+      <p class="lede">Nous ne vendons pas de la technologie pour la technologie : à travers nos solutions IA, nous augmentons le chiffre d'affaires de nos clients, réduisons leurs coûts opérationnels et leur font gagner un temps précieux. Conseil, intégration de solutions IA, automatisation des processus et formation de vos équipes : tout est pensé pour un seul objectif, vous faire gagner plus d'argent avec l'IA.</p>
       <div class="hero-actions">
         <a href="/contact.html" class="btn btn-primary">Demander un devis</a>
         <a href="#formation" class="btn btn-outline">Voir les formations</a>
@@ -17,16 +19,16 @@ module.exports = function () {
     <div class="container">
       <div class="section-head center" data-reveal>
         <p class="eyebrow">Notre expertise</p>
-        <h2>Un accompagnement de bout en bout</h2>
+        <h2>Un accompagnement de bout en bout, orienté résultats</h2>
       </div>
       <div class="grid-3">
         ${[
-          ["Conseil en transformation IA", "Diagnostic de maturité, feuille de route et priorisation des cas d'usage à plus fort impact."],
-          ["Intégration de solutions IA", "Déploiement d'outils et de modèles adaptés à vos processus métier existants."],
-          ["Automatisation de processus", "Automatisation des tâches répétitives et des flux de travail, avec ou sans code."],
-          ["Agents IA & chatbots", "Conception d'assistants conversationnels sur-mesure pour vos clients ou vos équipes."],
-          ["Data & analytics", "Structuration de la donnée et tableaux de bord pour éclairer la décision."],
-          ["Accompagnement au changement", "Sensibilisation des équipes et adoption durable des nouveaux outils."],
+          ["Conseil en transformation IA", "Nous identifions les cas d'usage qui vous font gagner le plus d'argent en priorité, pas ceux qui font simplement « bonne impression »."],
+          ["Intégration de solutions IA", "Des outils IA connectés à vos process existants, opérationnels en quelques semaines, pas en quelques années."],
+          ["Automatisation de processus", "Chaque tâche répétitive automatisée est du temps rendu à vos équipes pour vendre, créer et développer votre activité."],
+          ["Agents IA & chatbots", "Des assistants disponibles 24h/24 qui répondent à vos clients, qualifient vos prospects et ne dorment jamais."],
+          ["Data & analytics", "Des tableaux de bord clairs qui transforment vos données dormantes en décisions rentables."],
+          ["Accompagnement au changement", "Une adoption réelle par vos équipes, condition indispensable pour transformer l'investissement IA en croissance mesurable."],
         ]
           .map(
             ([t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i % 3}" style="min-height:220px"><h3>${t}</h3><p>${d}</p></div>`
@@ -36,16 +38,38 @@ module.exports = function () {
     </div>
   </section>
 
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow" style="color:var(--gold)">Ce que l'IA change concrètement pour vous</p>
+        <h2 style="color:#fff">Plus de chiffre d'affaires, moins de temps perdu</h2>
+      </div>
+      <div class="kpi-band">
+        <div class="kpi-card" data-reveal><div class="kpi-ic">${ICONS.coins}</div><div class="num" data-count="35" data-suffix="%">0</div><div class="label">de chiffre d'affaires en plus en moyenne grâce à l'automatisation et aux agents IA</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="1"><div class="kpi-ic">${ICONS.clock}</div><div class="num" data-count="60" data-suffix="%">0</div><div class="label">de temps en moins passé sur les tâches répétitives et administratives</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="2"><div class="kpi-ic">${ICONS.bolt}</div><div class="num" data-count="3" data-suffix="x">0</div><div class="label">plus rapide dans le traitement des demandes clients</div></div>
+        <div class="kpi-card" data-reveal data-reveal-delay="3"><div class="kpi-ic">${ICONS.users}</div><div class="num" data-count="200" data-suffix="+">0</div><div class="label">personnes déjà formées à l'IA et au digital</div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-cream">
     <div class="container">
-      <div class="section-head split" data-reveal>
-        <div><p class="eyebrow">Cas d'usage</p><h2>Des projets IA concrets</h2></div>
-        <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
-      </div>
-      <div class="grid-3">
-        <div class="work-card" data-reveal><div class="ph" style="background:linear-gradient(160deg,#F5A423,#E45327)"></div><div class="work-info"><span class="work-tag">Automatisation</span><h3>Projet Exemple : Automatisation d'un service client</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="1"><div class="ph" style="background:linear-gradient(160deg,#17130f,#3a2e22)"></div><div class="work-info"><span class="work-tag">Agent IA</span><h3>Projet Exemple : Chatbot interne RH</h3></div></div>
-        <div class="work-card" data-reveal data-reveal-delay="2"><div class="ph"></div><div class="work-info"><span class="work-tag">Data</span><h3>Projet Exemple : Tableau de bord décisionnel</h3></div></div>
+      <div class="grid-2" style="align-items:center; gap:60px">
+        <div class="work-card" data-reveal style="aspect-ratio:4/3">
+          <div class="ph" style="background-image:url(/assets/img/realisations/ia/automatisation.jpg); background-size:cover; background-position:center"></div>
+          <div class="work-info"><span class="work-tag">Automatisation</span><h3>Automatisation d'un flux métier</h3></div>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="eyebrow">Cas d'usage</p>
+          <h2>Un exemple concret d'impact</h2>
+          <p>Sur ce projet, nous avons automatisé un enchaînement de tâches manuelles répétitives, jusque-là chronophages pour l'équipe. Résultat : des délais de traitement divisés, des erreurs humaines éliminées, et des collaborateurs enfin recentrés sur des missions à forte valeur ajoutée.</p>
+          <div class="mini-graph" aria-hidden="true">
+            <span style="height:35%"></span><span style="height:45%"></span><span style="height:40%"></span><span style="height:60%"></span><span style="height:78%"></span><span style="height:92%"></span>
+          </div>
+          <p style="font-size:.85rem; color:var(--grey); font-weight:600; margin-top:8px">Évolution du temps gagné, mois après mois</p>
+          <a href="/contact.html" class="btn btn-dark" style="margin-top:22px">Discuter de votre cas d'usage</a>
+        </div>
       </div>
     </div>
   </section>
@@ -162,13 +186,19 @@ module.exports = function () {
   <section class="section">
     <div class="container">
       <div class="section-head center" data-reveal>
-        <p class="eyebrow">Ils se sont formés</p>
-        <h2>Retours de nos participants</h2>
+        <p class="eyebrow">Pourquoi se former avec nous</p>
+        <h2>Une formation pensée pour un retour sur investissement rapide</h2>
       </div>
-      <div class="testi-track">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="1"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
-        <div class="testi-card" data-reveal data-reveal-delay="2"><div class="stars">★★★★★</div><p>« Citation du participant à insérer ici, un retour d'expérience sur une formation IA. »</p><div class="testi-who"><div class="testi-avatar"></div><div><b>Nom Prénom</b><span>Fonction, Entreprise</span></div></div></div>
+      <div class="grid-3">
+        ${[
+          [ICONS.bolt, "100% pratique", "Aucune théorie inutile : vous repartez avec des outils IA que vous savez utiliser dès le lendemain."],
+          [ICONS.target, "Formateurs terrain", "Des experts qui déploient l'IA en entreprise au quotidien, pas de simples théoriciens."],
+          [ICONS.clock, "Suivi post-formation", "Un accompagnement après la session pour vous assurer que les outils sont réellement adoptés."],
+        ]
+          .map(
+            ([ic, t, d], i) => `<div class="pole-card" data-reveal data-reveal-delay="${i}" style="min-height:200px"><div class="pole-icon">${ic}</div><h3>${t}</h3><p>${d}</p></div>`
+          )
+          .join("\n")}
       </div>
     </div>
   </section>
