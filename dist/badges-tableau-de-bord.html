@@ -90,8 +90,9 @@
       for (var i = 0; i < campaigns.length; i++) {
         var c = campaigns[i];
         var link = window.location.origin + "/b/" + c.slug;
-        html += '<div class="pole-card" style="margin-bottom:18px; display:flex; flex-wrap:wrap; align-items:center; gap:18px">';
-        html += '<img src="' + c.frameUrl + '" alt="" style="width:64px; height:64px; object-fit:cover; border-radius:12px; background:var(--cream)" />';
+        var slugAttr = escapeHtml(c.slug);
+        html += '<div class="pole-card" data-slug="' + slugAttr + '" style="margin-bottom:18px; display:flex; flex-wrap:wrap; align-items:center; gap:18px">';
+        html += '<img class="frame-thumb" src="' + c.frameUrl + '" alt="" style="width:64px; height:64px; object-fit:cover; border-radius:12px; background:var(--cream)" />';
         html += '<div style="flex:1; min-width:220px">';
         html += '<h3 style="margin-bottom:6px">' + escapeHtml(c.name) + '</h3>';
         html += '<div style="display:flex; gap:8px; align-items:center">';
@@ -99,6 +100,10 @@
         html += '<button type="button" class="btn btn-outline copy-btn" data-link="' + escapeHtml(link) + '" style="padding:8px 16px; font-size:.82rem">Copier</button>';
         html += '</div></div>';
         html += '<div style="text-align:center; min-width:100px"><div style="font-size:1.6rem; font-weight:700">' + c.generations + '</div><div style="font-size:.75rem; color:var(--grey); text-transform:uppercase; letter-spacing:.08em">badges</div></div>';
+        html += '<div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px">';
+        html += '<button type="button" class="btn btn-outline edit-frame-btn" data-slug="' + slugAttr + '" style="padding:8px 16px; font-size:.82rem">Modifier le cadre</button>';
+        html += '<input type="file" class="frame-file-input" data-slug="' + slugAttr + '" accept="image/png,image/jpeg,image/webp" style="display:none" />';
+        html += '</div>';
         html += '</div>';
       }
       list.innerHTML = html;
@@ -114,6 +119,52 @@
               setTimeout(function () { btn.textContent = original; }, 1500);
             });
           }
+        });
+      });
+
+      var editBtns = list.querySelectorAll(".edit-frame-btn");
+      editBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var slug = btn.getAttribute("data-slug");
+          var input = list.querySelector('.frame-file-input[data-slug="' + slug + '"]');
+          if (input) input.click();
+        });
+      });
+
+      var fileInputs = list.querySelectorAll(".frame-file-input");
+      fileInputs.forEach(function (input) {
+        input.addEventListener("change", function () {
+          var file = input.files[0];
+          if (!file) return;
+          var slug = input.getAttribute("data-slug");
+          var card = list.querySelector('.pole-card[data-slug="' + slug + '"]');
+          var btn = card ? card.querySelector(".edit-frame-btn") : null;
+          var thumb = card ? card.querySelector(".frame-thumb") : null;
+          var originalLabel = btn ? btn.textContent : "";
+
+          if (btn) { btn.disabled = true; btn.textContent = "Mise à jour..."; }
+
+          var fd = new FormData();
+          fd.append("frame", file);
+
+          fetch("/api/campaigns/" + encodeURIComponent(slug), { method: "PATCH", body: fd, credentials: "same-origin" })
+            .then(function (r) {
+              return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+            })
+            .then(function (res) {
+              if (!res.ok) throw new Error(res.data.error || "Une erreur est survenue.");
+              if (thumb) thumb.src = res.data.frameUrl + "?t=" + Date.now();
+              if (btn) {
+                btn.textContent = "Cadre mis à jour !";
+                setTimeout(function () { btn.disabled = false; btn.textContent = originalLabel; }, 1800);
+              }
+              input.value = "";
+            })
+            .catch(function (err) {
+              alert(err.message);
+              if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+              input.value = "";
+            });
         });
       });
     }

@@ -51,29 +51,29 @@
       ctx.drawImage(frameImg, 0, 0, W, H);
     }
 
-    // Filigrane Tambour Agency : petit badge orange discret en coin bas-droit
+    // Filigrane Tambour Agency : fine bande verticale orange, collée au bord
+    // droit du badge, texte lu de bas en haut.
     ctx.save();
-    var fontSize = Math.round(W * 0.018);
+    var fontSize = Math.round(W * 0.011);
     ctx.font = "700 " + fontSize + "px Inter, Arial, sans-serif";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "left";
     var text = "Tambour Agency";
     var tw = ctx.measureText(text).width;
-    var padX = fontSize * 0.6;
-    var padY = fontSize * 0.5;
-    var boxW = tw + padX * 2;
-    var boxH = fontSize + padY * 2;
-    var margin = W * 0.028;
-    var boxX = W - boxW - margin;
-    var boxY = H - boxH - margin;
-    var radius = Math.min(6, boxH * 0.28);
+    var padAlongText = fontSize * 0.55; // marge en haut/bas du texte (une fois pivoté)
+    var padAcrossText = fontSize * 0.45; // marge de part et d'autre du texte
+    var boxLen = tw + padAlongText * 2; // longueur de la bande (verticale)
+    var boxThick = fontSize + padAcrossText * 2; // épaisseur de la bande
+    var margin = W * 0.01;
+    var radius = Math.min(5, boxThick * 0.28);
+
+    ctx.translate(W - margin - boxThick / 2, H / 2);
+    ctx.rotate(-Math.PI / 2);
 
     ctx.fillStyle = "rgba(228,83,39,0.92)"; // orange de marque #E45327
     ctx.beginPath();
     if (ctx.roundRect) {
-      ctx.roundRect(boxX, boxY, boxW, boxH, radius);
+      ctx.roundRect(-boxLen / 2, -boxThick / 2, boxLen, boxThick, radius);
     } else {
-      var x = boxX, y = boxY, w = boxW, h = boxH, r = radius;
+      var x = -boxLen / 2, y = -boxThick / 2, w = boxLen, h = boxThick, r = radius;
       ctx.moveTo(x + r, y);
       ctx.arcTo(x + w, y, x + w, y + h, r);
       ctx.arcTo(x + w, y + h, x, y + h, r);
@@ -84,7 +84,9 @@
     ctx.fill();
 
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(text, boxX + padX, boxY + boxH / 2 + fontSize * 0.03);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(text, 0, fontSize * 0.03);
     ctx.restore();
   }
 
