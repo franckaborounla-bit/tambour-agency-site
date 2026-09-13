@@ -44,7 +44,74 @@ const PROJECTS = {
     // (lecture automatique en boucle, muette) sur les cartes réalisations.
     images: [1, 2, 3].map((n) => `/assets/video/realisations/ia-generative/ia-generative-0${n}.mp4`),
   },
+  "video-shen-teaser": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Teaser SHEN 2026",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-01.mp4"],
+  },
+  "video-shen-stands": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Spot stands SHEN",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-02.mp4"],
+  },
+  "video-concours-talent": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Concours Talent d'Honneur",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-03.mp4"],
+  },
+  "video-kavod": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Spot Kavod Connect",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-04.mp4"],
+  },
+  "video-spot-orateurs": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Spot intégral orateurs",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-05.mp4"],
+  },
+  "video-magazine": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Spot Magazine",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-06.mp4"],
+  },
+  "video-riche-pour-dieu": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Riche pour Dieu",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-07.mp4"],
+  },
+  "video-pre-spot-off": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Pré-spot off",
+    type: "video",
+    images: ["/assets/video/realisations/communication/comm-08.mp4"],
+  },
 };
+
+const COMM_VIDEO_KEYS = [
+  "video-shen-teaser",
+  "video-shen-stands",
+  "video-concours-talent",
+  "video-kavod",
+  "video-spot-orateurs",
+  "video-magazine",
+  "video-riche-pour-dieu",
+  "video-pre-spot-off",
+];
 
 const CAT_LABEL = { comm: "Communication 360°", event: "Événementiel", ia: "Ingénierie IA" };
 
@@ -67,7 +134,7 @@ function renderWorkCard(key, { delay = 0, pos = "center", aspect } = {}) {
   const cover = p.images[0];
   const isVideo = p.type === "video";
   const media = isVideo
-    ? `<video class="ph" src="${cover}" autoplay muted loop playsinline preload="auto" style="width:100%; height:100%; object-fit:cover"></video>`
+    ? `<video class="ph" src="${cover}" autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover"></video>`
     : `<div class="ph" style="background-image:url(${cover}); background-size:cover; background-position:${pos}"></div>`;
   const badge =
     p.images.length > 1
@@ -82,4 +149,4 @@ function renderWorkCard(key, { delay = 0, pos = "center", aspect } = {}) {
   </div>`;
 }
 
-module.exports = { PROJECTS, galleryAttrs, CAT_LABEL, renderWorkCard };
+module.exports = { PROJECTS, galleryAttrs, CAT_LABEL, renderWorkCard, COMM_VIDEO_KEYS };

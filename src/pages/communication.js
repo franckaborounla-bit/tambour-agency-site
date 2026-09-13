@@ -1,5 +1,5 @@
 const { ICONS } = require("../../build.js");
-const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
+const { renderWorkCard, COMM_VIDEO_KEYS } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -72,18 +72,19 @@ module.exports = function () {
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
       <div class="grid-2">
-        ${["branding", "magazine"]
-          .map((key, i) => {
-            const p = PROJECTS[key];
-            return `<div class="work-card" data-reveal data-reveal-delay="${i}" ${galleryAttrs(key)}>
-          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:center"></div>
-          <div class="work-info">
-            <div><span class="work-tag">${p.tag}</span><h3>${p.title}</h3></div>
-            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
-          </div>
-        </div>`;
-          })
-          .join("\n")}
+        ${["branding", "magazine"].map((key, i) => renderWorkCard(key, { delay: i })).join("\n")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Production audiovisuelle</p>
+        <h2>Nos réalisations vidéo</h2>
+      </div>
+      <div class="grid-3">
+        ${COMM_VIDEO_KEYS.map((key, i) => renderWorkCard(key, { delay: i % 3, aspect: "4/3" })).join("\n")}
       </div>
     </div>
   </section>

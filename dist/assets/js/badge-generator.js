@@ -51,19 +51,40 @@
       ctx.drawImage(frameImg, 0, 0, W, H);
     }
 
-    // Filigrane Tambour Agency
+    // Filigrane Tambour Agency : petit badge orange discret en coin bas-droit
     ctx.save();
-    var fontSize = Math.round(W * 0.034);
+    var fontSize = Math.round(W * 0.018);
     ctx.font = "700 " + fontSize + "px Inter, Arial, sans-serif";
-    ctx.textBaseline = "bottom";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "left";
     var text = "Tambour Agency";
-    var pad = W * 0.035;
     var tw = ctx.measureText(text).width;
-    ctx.lineWidth = Math.max(2, W * 0.005);
-    ctx.strokeStyle = "rgba(23,19,15,0.45)";
-    ctx.strokeText(text, W - tw - pad, H - pad);
-    ctx.fillStyle = "rgba(255,255,255,0.92)";
-    ctx.fillText(text, W - tw - pad, H - pad);
+    var padX = fontSize * 0.6;
+    var padY = fontSize * 0.5;
+    var boxW = tw + padX * 2;
+    var boxH = fontSize + padY * 2;
+    var margin = W * 0.028;
+    var boxX = W - boxW - margin;
+    var boxY = H - boxH - margin;
+    var radius = Math.min(6, boxH * 0.28);
+
+    ctx.fillStyle = "rgba(228,83,39,0.92)"; // orange de marque #E45327
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(boxX, boxY, boxW, boxH, radius);
+    } else {
+      var x = boxX, y = boxY, w = boxW, h = boxH, r = radius;
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+    ctx.fill();
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(text, boxX + padX, boxY + boxH / 2 + fontSize * 0.03);
     ctx.restore();
   }
 
