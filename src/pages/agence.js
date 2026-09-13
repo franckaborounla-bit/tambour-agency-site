@@ -3,8 +3,8 @@ module.exports = function () {
   <section class="page-hero">
     <div class="container">
       <div class="crumb"><a href="/index.html" style="color:inherit">Accueil</a> / <b>L'Agence</b></div>
-      <h1>De Tambour Studio à Tambour Agency</h1>
-      <p class="lede">Une même exigence créative, un périmètre élargi : communication, événementiel et ingénierie IA réunis sous une seule signature.</p>
+      <h1>L'agence qui donne le tempo à vos ambitions.</h1>
+      <p class="lede">Communication 360°, organisation événementielle et ingénierie IA : trois expertises réunies sous une seule signature, au service de la précision et de l'impact.</p>
     </div>
   </section>
 
@@ -12,12 +12,14 @@ module.exports = function () {
     <div class="container">
       <div class="grid-2" style="align-items:center; gap:60px;">
         <div data-reveal>
-          <p class="eyebrow">Notre histoire</p>
-          <h2>Un studio devenu agence, une ambition élargie</h2>
-          <p>Tambour Studio a construit sa réputation sur des créations exigeantes et un sens aigu du détail. En devenant Tambour Agency, nous formalisons une évolution déjà à l'œuvre : accompagner nos clients au-delà de la création, jusqu'à la production d'événements et l'intégration de solutions d'intelligence artificielle dans leurs organisations.</p>
-          <p>Ce nouveau nom porte une idée simple : le tambour donne le rythme. Il fédère, il annonce, il marque le temps fort. C'est ce rôle que nous jouons pour nos clients — donner le tempo de leurs prises de parole, de leurs événements et de leur transformation digitale.</p>
+          <p class="eyebrow">Notre identité</p>
+          <h2>Une agence, trois expertises, un seul rythme</h2>
+          <p>Tambour Agency accompagne marques, institutions et organisations sur trois terrains complémentaires : la communication 360°, l'organisation événementielle et l'ingénierie IA. Une même exigence créative et technique irrigue chacun de ces pôles, du premier brief à la mesure des résultats.</p>
+          <p>Le tambour donne le rythme. Il fédère, il annonce, il marque le temps fort. C'est ce rôle que nous jouons pour nos clients, en donnant le tempo de leurs prises de parole, de leurs événements et de leur transformation digitale.</p>
         </div>
-        <div class="work-card" data-reveal data-reveal-delay="1" style="aspect-ratio:1"><div class="ph"></div></div>
+        <div class="work-card" data-reveal data-reveal-delay="1">
+          <img src="/assets/img/agence-visual.jpg" alt="Tambour Agency, l'exigence créative et technique au service de l'impact" class="ph" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 15%;" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
@@ -56,27 +58,6 @@ module.exports = function () {
         <div class="step" data-reveal data-reveal-delay="1"><div class="n">02</div><div><h3>Concevoir</h3><p>Élaboration d'une stratégie et de recommandations créatives, événementielles ou technologiques adaptées à vos objectifs.</p></div></div>
         <div class="step" data-reveal data-reveal-delay="2"><div class="n">03</div><div><h3>Exécuter</h3><p>Production et mise en œuvre avec un souci constant du détail et du respect des délais.</p></div></div>
         <div class="step" data-reveal data-reveal-delay="3"><div class="n">04</div><div><h3>Mesurer</h3><p>Analyse des résultats et recommandations d'amélioration continue pour vos prochaines initiatives.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-cream">
-    <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Équipe</p>
-        <h2>Les personnes derrière le rythme</h2>
-        <p class="lede">Une équipe pluridisciplinaire de créatifs, de producteurs événementiels et d'ingénieurs IA.</p>
-      </div>
-      <div class="team-grid">
-        ${[1, 2, 3, 4]
-          .map(
-            (i) => `<div class="team-card" data-reveal data-reveal-delay="${i}">
-          <div class="avatar"></div>
-          <h3>Nom Prénom</h3>
-          <span>Fonction à définir</span>
-        </div>`
-          )
-          .join("\n")}
       </div>
     </div>
   </section>

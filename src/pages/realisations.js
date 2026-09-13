@@ -1,15 +1,15 @@
+const { PROJECTS, renderWorkCard } = require("./_projects-data.js");
+
+const POS = {
+  branding: "center",
+  magazine: "center",
+  "excellence-awards": "center 30%",
+  "zoom-festi-africa": "center 25%",
+  automatisation: "center",
+};
+
 module.exports = function () {
-  const items = [
-    ["comm", "Communication 360°", "Projet Exemple 01 — Lancement de marque", ""],
-    ["event", "Événementiel", "Projet Exemple 02 — Conférence annuelle", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["ia", "Ingénierie IA", "Projet Exemple 03 — Agent IA sur-mesure", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 04 — Campagne réseaux sociaux", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 05 — Séminaire d'entreprise", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 06 — Automatisation service client", "linear-gradient(160deg,#F5A423,#E45327)"],
-    ["comm", "Communication 360°", "Projet Exemple 07 — Film de marque", "linear-gradient(160deg,#17130f,#3a2e22)"],
-    ["event", "Événementiel", "Projet Exemple 08 — Lancement produit grand public", ""],
-    ["ia", "Ingénierie IA", "Projet Exemple 09 — Tableau de bord décisionnel", "linear-gradient(160deg,#F5A423,#E45327)"],
-  ];
+  const items = Object.keys(PROJECTS);
   return `
   <section class="page-hero">
     <div class="container">
@@ -28,14 +28,7 @@ module.exports = function () {
         <button class="filter-btn" data-filter="ia">Ingénierie IA</button>
       </div>
       <div class="grid-3">
-        ${items
-          .map(
-            ([cat, tag, title, bg], i) => `<div class="work-card" data-cat="${cat}" data-reveal data-reveal-delay="${i % 3}">
-          <div class="ph" ${bg ? `style="background:${bg}"` : ""}></div>
-          <div class="work-info"><span class="work-tag">${tag}</span><h3>${title}</h3></div>
-        </div>`
-          )
-          .join("\n")}
+        ${items.map((key, i) => renderWorkCard(key, { delay: i % 3, pos: POS[key] || "center" })).join("\n")}
       </div>
     </div>
   </section>

@@ -6,6 +6,13 @@
 (function () {
   "use strict";
 
+  /* Clé d'accès Web3Forms (gratuit, sans backend) : à remplacer par la clé
+     reçue par email après inscription sur https://web3forms.com avec
+     l'adresse Gmail du site. Les messages envoyés depuis les formulaires
+     du site (contact, formation, newsletters) seront alors livrés dans
+     cette boîte Gmail. */
+  var WEB3FORMS_ACCESS_KEY = "359a00f4-d44d-4d11-ba26-f82b2fd07714";
+
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Header scroll state ---------- */
@@ -117,38 +124,184 @@
   }
 
   /* ---------- Hero vidéo ----------
-     Vidéo de marque en lecture automatique, muette et en boucle.
-     Respecte prefers-reduced-motion : on met en pause et on garde
-     l'image poster affichée pour les utilisateurs sensibles au mouvement. */
+     Vidéo de marque en lecture automatique, muette et en boucle — jouée
+     dans tous les cas, y compris avec "réduire les animations" activé
+     (pratique courante pour une vidéo de marque en hero). Seules les
+     animations décoratives secondaires (reveal, curseur, etc.) respectent
+     prefers-reduced-motion ailleurs dans ce fichier. */
   var heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    if (reduceMotion) {
-      heroVideo.pause();
-      heroVideo.removeAttribute("autoplay");
-    } else {
-      var playPromise = heroVideo.play();
-      if (playPromise && playPromise.catch) {
-        playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
-      }
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function () { /* autoplay bloqué par le navigateur : le poster reste affiché */ });
     }
   }
 
-  /* ---------- Forms: contact / devis / formation ----------
-     Pas de backend par défaut sur un site statique Cloudflare Pages.
-     Ce script simule un envoi réussi côté client après validation.
-     Pour un envoi réel : brancher une Cloudflare Pages Function (/functions/api/*)
-     ou un service tiers (Web3Forms, Formspree...). Voir DEPLOY.md. */
+  /* ---------- Forms: contact / devis / formation / newsletter ----------
+     Envoi réel via Web3Forms (service tiers gratuit, sans backend) :
+     chaque soumission est transmise par email à la boîte Gmail associée
+     à la clé WEB3FORMS_ACCESS_KEY définie en haut de ce fichier. */
+  var formSubjects = {
+    contact: "Nouveau message - Formulaire de contact",
+    formation: "Nouvelle demande de formation",
+    "newsletter-actu": "Nouvelle inscription newsletter (page Actualités)",
+    "newsletter-footer": "Nouvelle inscription newsletter (pied de page)",
+  };
   document.querySelectorAll("form[data-form]").forEach(function (form) {
+    var formName = form.getAttribute("data-form");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var honeypot = form.querySelector('[name="botcheck"]');
+      if (honeypot && honeypot.checked) return;
+
       var btn = form.querySelector("button[type=submit]");
+      var originalLabel = btn ? btn.innerHTML : "";
       var success = form.parentElement.querySelector(".form-success");
+
+      var data = new FormData(form);
+      data.append("access_key", WEB3FORMS_ACCESS_KEY);
+      data.append("subject", formSubjects[formName] || "Nouveau message - Site Tambour Agency");
+      data.append("from_name", "Site Tambour Agency");
+
       if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours..."; }
-      setTimeout(function () {
-        form.style.display = "none";
-        if (success) success.classList.add("show");
-        else alert("Merci, votre demande a bien été reçue.");
-      }, 700);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message || "Erreur d'envoi");
+          form.reset();
+          form.style.display = "none";
+          if (success) success.classList.add("show");
+          else alert("Merci, votre demande a bien été reçue.");
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
+          alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou écrivez-nous directement à tambouragency@gmail.com.");
+        });
     });
   });
+
+  /* ---------- Galerie réalisations (lightbox) ---------- */
+  (function () {
+    var triggers = document.querySelectorAll("[data-gallery]");
+    if (!triggers.length) return;
+
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML =
+      '<button class="lightbox-close" aria-label="Fermer">×</button>' +
+      '<div class="lightbox-stage">' +
+      '<button class="lightbox-arrow prev" aria-label="Média précédent">‹</button>' +
+      '<div class="lightbox-media"></div>' +
+      '<button class="lightbox-arrow next" aria-label="Média suivant">›</button>' +
+      "</div>" +
+      '<div class="lightbox-meta"><span class="tag"></span><h3></h3><span class="count"></span></div>' +
+      '<div class="lightbox-thumbs"></div>';
+    document.body.appendChild(lb);
+
+    var mediaWrap = lb.querySelector(".lightbox-media");
+    var metaTag = lb.querySelector(".lightbox-meta .tag");
+    var metaTitle = lb.querySelector(".lightbox-meta h3");
+    var metaCount = lb.querySelector(".lightbox-meta .count");
+    var thumbsWrap = lb.querySelector(".lightbox-thumbs");
+    var btnPrev = lb.querySelector(".lightbox-arrow.prev");
+    var btnNext = lb.querySelector(".lightbox-arrow.next");
+    var btnClose = lb.querySelector(".lightbox-close");
+
+    var current = { images: [], index: 0, tag: "", title: "" };
+
+    function isVideo(src) {
+      return /\.mp4($|\?)/i.test(src);
+    }
+
+    function render() {
+      var total = current.images.length;
+      var src = current.images[current.index];
+      mediaWrap.innerHTML = "";
+      var el;
+      if (isVideo(src)) {
+        el = document.createElement("video");
+        el.src = src;
+        el.controls = true;
+        el.playsInline = true;
+        el.autoplay = true;
+      } else {
+        el = document.createElement("img");
+        el.src = src;
+        el.alt = current.title || "";
+      }
+      mediaWrap.appendChild(el);
+
+      metaTag.textContent = current.tag;
+      metaTitle.textContent = current.title;
+      metaCount.textContent = total > 1 ? current.index + 1 + " / " + total : "";
+      btnPrev.style.display = total > 1 ? "flex" : "none";
+      btnNext.style.display = total > 1 ? "flex" : "none";
+      thumbsWrap.style.display = total > 1 ? "flex" : "none";
+      if (total > 1 && !thumbsWrap.children.length) {
+        current.images.forEach(function (thumbSrc, i) {
+          var t;
+          if (isVideo(thumbSrc)) {
+            t = document.createElement("video");
+            t.src = thumbSrc;
+            t.muted = true;
+            t.preload = "metadata";
+          } else {
+            t = document.createElement("img");
+            t.src = thumbSrc;
+          }
+          t.addEventListener("click", function () {
+            current.index = i;
+            render();
+          });
+          thumbsWrap.appendChild(t);
+        });
+      }
+      Array.prototype.forEach.call(thumbsWrap.children, function (t, i) {
+        t.classList.toggle("is-active", i === current.index);
+      });
+    }
+
+    function open(images, tag, title, startIndex) {
+      current = { images: images, index: startIndex || 0, tag: tag, title: title };
+      thumbsWrap.innerHTML = "";
+      render();
+      lb.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+    function close() {
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+      mediaWrap.innerHTML = "";
+    }
+    function step(dir) {
+      var total = current.images.length;
+      current.index = (current.index + dir + total) % total;
+      render();
+    }
+
+    triggers.forEach(function (el) {
+      el.addEventListener("click", function () {
+        var images;
+        try { images = JSON.parse(el.getAttribute("data-gallery")); } catch (e) { images = []; }
+        if (!images.length) return;
+        open(images, el.getAttribute("data-gallery-tag") || "", el.getAttribute("data-gallery-title") || "", 0);
+      });
+    });
+
+    btnPrev.addEventListener("click", function () { step(-1); });
+    btnNext.addEventListener("click", function () { step(1); });
+    btnClose.addEventListener("click", close);
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    });
+  })();
 })();

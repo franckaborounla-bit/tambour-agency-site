@@ -17,7 +17,7 @@ const MAINTENANCE_SRC = path.join(__dirname, "maintenance.html");
 //   - supprimez ce fichier MAINTENANCE, committez, poussez
 // ============================================================
 if (fs.existsSync(MAINTENANCE_FLAG)) {
-  console.log("⚠️  Mode MAINTENANCE actif — publication de la page de maintenance uniquement.");
+  console.log("⚠️  Mode MAINTENANCE actif : publication de la page de maintenance uniquement.");
   fs.rmSync(DIST, { recursive: true, force: true });
   fs.mkdirSync(DIST, { recursive: true });
   fs.mkdirSync(path.join(DIST, "assets", "img"), { recursive: true });
@@ -38,58 +38,94 @@ if (fs.existsSync(MAINTENANCE_FLAG)) {
 const PAGES = [
   {
     file: "index.html",
-    title: "Tambour Agency — Communication 360°, Événementiel & Ingénierie IA",
+    title: "Tambour Agency | Communication 360°, Événementiel & Ingénierie IA",
     description: "Tambour Agency accompagne les marques en communication 360°, organisation événementielle et ingénierie IA. Découvrez nos expertises et nos formations IA.",
     bodyClass: "page-dark",
     content: require("./src/pages/index.js"),
   },
   {
     file: "agence.html",
-    title: "L'Agence — Tambour Agency",
-    description: "De Tambour Studio à Tambour Agency : découvrez notre histoire, notre mission, nos valeurs et notre équipe.",
+    title: "L'Agence | Tambour Agency",
+    description: "Tambour Agency : communication 360°, organisation événementielle et ingénierie IA. Découvrez notre identité, notre mission, nos valeurs et notre équipe.",
     content: require("./src/pages/agence.js"),
   },
   {
     file: "communication.html",
-    title: "Communication 360° — Tambour Agency",
+    title: "Communication 360° | Tambour Agency",
     description: "Stratégie de marque, création de contenus, identité visuelle, réseaux sociaux, production audiovisuelle et relations publiques.",
     content: require("./src/pages/communication.js"),
   },
   {
     file: "evenementiel.html",
-    title: "Organisation Événementielle — Tambour Agency",
+    title: "Organisation Événementielle | Tambour Agency",
     description: "Conception et production d'événements corporate, lancements de produits, séminaires, conférences et événements grand public.",
     content: require("./src/pages/evenementiel.js"),
   },
   {
     file: "ingenierie-ia.html",
-    title: "Ingénierie IA & Formation — Tambour Agency",
+    title: "Ingénierie IA & Formation | Tambour Agency",
     description: "Conseil en IA, intégration de solutions, automatisation des processus, et formations individuelles ou en plénière à l'IA et au digital.",
     content: require("./src/pages/ingenierie-ia.js"),
   },
   {
     file: "realisations.html",
-    title: "Réalisations — Tambour Agency",
+    title: "Réalisations | Tambour Agency",
     description: "Découvrez une sélection de projets menés par Tambour Agency en communication, événementiel et ingénierie IA.",
     content: require("./src/pages/realisations.js"),
   },
   {
     file: "actualites.html",
-    title: "Actualités — Tambour Agency",
+    title: "Actualités | Tambour Agency",
     description: "Le journal de Tambour Agency : actualités de l'agence, décryptages IA et digital, retours d'expérience événementiels.",
     content: require("./src/pages/actualites.js"),
   },
   {
     file: "contact.html",
-    title: "Contact — Tambour Agency",
+    title: "Contact | Tambour Agency",
     description: "Contactez Tambour Agency pour votre projet de communication, d'événementiel, d'ingénierie IA ou de formation.",
     content: require("./src/pages/contact.js"),
   },
   {
     file: "mentions-legales.html",
-    title: "Mentions légales & Confidentialité — Tambour Agency",
+    title: "Mentions légales & Confidentialité | Tambour Agency",
     description: "Mentions légales et politique de confidentialité de Tambour Agency.",
     content: require("./src/pages/mentions-legales.js"),
+  },
+  {
+    file: "badges.html",
+    title: "Badges événementiels | Tambour Agency",
+    description: "Créez un cadre photo pour votre événement et laissez vos participants générer leur badge en quelques secondes.",
+    content: require("./src/pages/badges.js"),
+  },
+  {
+    file: "badges-inscription.html",
+    title: "Créer mon compte | Badges Tambour Agency",
+    description: "Créez votre compte gratuit pour lancer vos campagnes de badges événementiels avec Tambour Agency.",
+    content: require("./src/pages/badges-inscription.js"),
+  },
+  {
+    file: "badges-connexion.html",
+    title: "Connexion | Badges Tambour Agency",
+    description: "Connectez-vous à votre tableau de bord de campagnes de badges Tambour Agency.",
+    content: require("./src/pages/badges-connexion.js"),
+  },
+  {
+    file: "badges-tableau-de-bord.html",
+    title: "Tableau de bord | Badges Tambour Agency",
+    description: "Gérez vos campagnes de badges et suivez le nombre de badges générés.",
+    content: require("./src/pages/badges-tableau-de-bord.js"),
+  },
+  {
+    file: "badges-nouvelle-campagne.html",
+    title: "Nouvelle campagne | Badges Tambour Agency",
+    description: "Créez une nouvelle campagne de badges événementiels avec votre propre cadre photo.",
+    content: require("./src/pages/badges-nouvelle-campagne.js"),
+  },
+  {
+    file: "b.html",
+    title: "Créez votre badge | Tambour Agency",
+    description: "Uploadez votre photo et générez votre badge personnalisé pour cet événement.",
+    content: require("./src/pages/b.js"),
   },
 ];
 
@@ -128,7 +164,9 @@ fs.writeFileSync(
   "User-agent: *\nAllow: /\nSitemap: https://www.tambouragency.com/sitemap.xml\n"
 );
 const base = "https://www.tambouragency.com/";
-const urls = PAGES.map((p) => (p.file === "index.html" ? base : base + p.file));
+// b.html est un gabarit générique (une page réelle correspond à /b/{slug}),
+// on ne le référence donc pas dans le sitemap.
+const urls = PAGES.filter((p) => p.file !== "b.html").map((p) => (p.file === "index.html" ? base : base + p.file));
 fs.writeFileSync(
   path.join(DIST, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
@@ -136,11 +174,15 @@ fs.writeFileSync(
     .join("\n")}\n</urlset>\n`
 );
 
+// _redirects : chaque lien de campagne /b/{slug} doit servir le gabarit
+// b.html, qui lit le slug dans l'URL et charge la campagne via l'API.
+fs.writeFileSync(path.join(DIST, "_redirects"), "/b/*  /b  200\n");
+
 // simple 404
 fs.writeFileSync(
   path.join(DIST, "404.html"),
   layout({
-    title: "Page introuvable — Tambour Agency",
+    title: "Page introuvable | Tambour Agency",
     description: "Page introuvable.",
     p: "404.html",
     content: `<section class="section" style="padding-top:200px; text-align:center;">
