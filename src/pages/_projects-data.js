@@ -17,6 +17,12 @@ const PROJECTS = {
     title: "Conception de magazine",
     images: [1, 2, 3].map((n) => `/assets/img/realisations/comm/magazine/magazine-0${n}.jpg`),
   },
+  "shen-visuels-communication": {
+    cat: "comm",
+    tag: "Design graphique",
+    title: "Campagne visuelle SHEN 2026",
+    images: Array.from({ length: 7 }, (_, i) => `/assets/img/realisations/comm/shen-visuels/shen-visuel-${String(i + 1).padStart(2, "0")}.jpg`),
+  },
   "excellence-awards": {
     cat: "event",
     tag: "Cérémonie",

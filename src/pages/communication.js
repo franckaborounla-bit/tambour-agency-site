@@ -71,8 +71,8 @@ module.exports = function () {
         <div><p class="eyebrow">Réalisations</p><h2>Projets Communication 360°</h2></div>
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
-      <div class="grid-2">
-        ${["branding", "magazine"].map((key, i) => renderWorkCard(key, { delay: i })).join("\n")}
+      <div class="grid-3">
+        ${["branding", "magazine", "shen-visuels-communication"].map((key, i) => renderWorkCard(key, { delay: i % 3 })).join("\n")}
       </div>
     </div>
   </section>
