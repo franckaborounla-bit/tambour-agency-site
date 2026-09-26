@@ -100,9 +100,31 @@ const PROJECTS = {
     type: "video",
     images: ["/assets/video/realisations/communication/comm-08.mp4"],
   },
+  "video-shen-recap": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Récap SHEN 2026",
+    type: "video",
+    images: ["/assets/video/realisations/communication/shen-recap.mp4"],
+  },
+  "video-shen-testimonial": {
+    cat: "comm",
+    tag: "Vidéo",
+    title: "Témoignage SHEN 2026",
+    type: "video",
+    images: ["/assets/video/realisations/communication/shen-testimonial.mp4"],
+  },
+  "shen-vases-dhonneur": {
+    cat: "event",
+    tag: "Salon",
+    title: "SHEN - Vases d'Honneur 2026",
+    images: Array.from({ length: 14 }, (_, i) => `/assets/img/realisations/event/shen/shen-${String(i + 1).padStart(2, "0")}.jpg`),
+  },
 };
 
 const COMM_VIDEO_KEYS = [
+  "video-shen-recap",
+  "video-shen-testimonial",
   "video-shen-teaser",
   "video-shen-stands",
   "video-concours-talent",

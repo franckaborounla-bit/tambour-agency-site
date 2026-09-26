@@ -1,5 +1,5 @@
 const { ICONS } = require("../../build.js");
-const { PROJECTS, galleryAttrs } = require("./_projects-data.js");
+const { renderWorkCard } = require("./_projects-data.js");
 
 module.exports = function () {
   return `
@@ -71,19 +71,14 @@ module.exports = function () {
         <div><p class="eyebrow">Réalisations</p><h2>Événements produits par l'agence</h2></div>
         <a href="/realisations.html" class="btn btn-dark">Voir tout le portfolio</a>
       </div>
-      <div class="grid-2">
-        ${["excellence-awards", "zoom-festi-africa"]
-          .map((key, i) => {
-            const p = PROJECTS[key];
-            const pos = key === "excellence-awards" ? "center 30%" : "center 25%";
-            return `<div class="work-card" data-reveal data-reveal-delay="${i}" ${galleryAttrs(key)}>
-          <div class="ph" style="background-image:url(${p.images[0]}); background-size:cover; background-position:${pos}"></div>
-          <div class="work-info">
-            <div><span class="work-tag">${p.tag}</span><h3>${p.title}</h3></div>
-            ${p.images.length > 1 ? `<span class="work-gallery-count">${ICONS.camera} ${p.images.length}</span>` : ""}
-          </div>
-        </div>`;
-          })
+      <div class="grid-3">
+        ${["shen-vases-dhonneur", "excellence-awards", "zoom-festi-africa"]
+          .map((key, i) =>
+            renderWorkCard(key, {
+              delay: i,
+              pos: key === "excellence-awards" ? "center 30%" : key === "zoom-festi-africa" ? "center 25%" : "center",
+            })
+          )
           .join("\n")}
       </div>
     </div>
