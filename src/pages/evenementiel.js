@@ -86,18 +86,6 @@ module.exports = function () {
 
   <section class="section section-cream">
     <div class="container">
-      <div class="section-head center" data-reveal>
-        <p class="eyebrow">Témoignage</p>
-        <h2>Ce qu'en dit un organisateur exigeant</h2>
-      </div>
-      <div class="testi-track" style="grid-template-columns:1fr; max-width:640px; margin:0 auto">
-        <div class="testi-card" data-reveal><div class="stars">★★★★★</div><p>« Organiser un événement pour des entrepreneurs exigeants ne laisse aucune place à l'approximation. Tambour Agency a orchestré chaque détail de SHEN - Vases d'Honneur avec une rigueur impressionnante, du concept à la régie technique. Le résultat : une édition dont tous nos participants parlent encore, et une agence sur qui je sais pouvoir compter les yeux fermés. »</p><div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/lambert-sourou.jpg); background-size:cover; background-position:center"></div><div><b>Lambert Sourou</b><span>PCO, SHEN - Vases d'Honneur</span></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-cream">
-    <div class="container">
       <div class="cta-banner" data-reveal style="text-align:left; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between">
         <div style="max-width:60ch">
           <p class="eyebrow" style="color:var(--gold)">Nouveau</p>

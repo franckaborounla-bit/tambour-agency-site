@@ -48,7 +48,6 @@ module.exports = function () {
         <div data-reveal data-reveal-delay="1">
           <h2>Coordonnées</h2>
           <div class="contact-info-item"><div class="ic">${ICONS.mail}</div><div><b>Email</b><p style="margin:0"><a href="mailto:tambouragency@gmail.com" style="color:inherit">tambouragency@gmail.com</a></p></div></div>
-          <div class="contact-info-item"><div class="ic">${ICONS.phone}</div><div><b>Téléphone</b><p style="margin:0"><a href="tel:+2250714508289" style="color:inherit">+225 07 14 50 82 89</a> (Côte d'Ivoire)<br/><a href="tel:+2290197334589" style="color:inherit">+229 01 97 33 45 89</a> (Bénin)</p></div></div>
           <div class="contact-info-item"><div class="ic">${ICONS.pin}</div><div><b>Adresse</b><p style="margin:0">Cocody, Abidjan, Côte d'Ivoire</p></div></div>
           <div class="map-block">Carte de localisation à intégrer (Google Maps)</div>
           <div class="footer-social" style="margin-top:26px; color:var(--ink)">

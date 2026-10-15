@@ -121,11 +121,6 @@ module.exports = function () {
         </div>
         <div class="testi-card" data-reveal data-reveal-delay="1">
           <div class="stars">★★★★★</div>
-          <p>« Organiser un événement pour des entrepreneurs exigeants ne laisse aucune place à l'approximation. Tambour Agency a orchestré chaque détail de SHEN - Vases d'Honneur avec une rigueur impressionnante, du concept à la régie technique. Une édition dont tous nos participants parlent encore. »</p>
-          <div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/lambert-sourou.jpg); background-size:cover; background-position:center"></div><div><b>Lambert Sourou</b><span>PCO, SHEN - Vases d'Honneur</span></div></div>
-        </div>
-        <div class="testi-card" data-reveal data-reveal-delay="2">
-          <div class="stars">★★★★★</div>
           <p>« Lancer une marque de beauté 100 % assumée demandait une communication à la hauteur de mon ambition. Tambour Agency a su révéler l'identité de LONNA AUTHENTIK avec une justesse rare : aujourd'hui, mes clientes n'achètent pas juste un produit, elles adhèrent à une histoire. Mon chiffre d'affaires a suivi cette transformation. »</p>
           <div class="testi-who"><div class="testi-avatar" style="background-image:url(/assets/img/temoignages/falonne-adandedjan.jpg); background-size:cover; background-position:center 15%"></div><div><b>Falonne Adandedjan</b><span>Promotrice, LONNA AUTHENTIK</span></div></div>
         </div>

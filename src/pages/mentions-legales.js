@@ -13,7 +13,7 @@ module.exports = function () {
         <h2>Mentions légales</h2>
         <p><em>Contenu à finaliser avec un conseil juridique avant mise en ligne. Trame indicative ci-dessous.</em></p>
         <h3>Éditeur du site</h3>
-        <p>Tambour Agency<br/>[Forme juridique, capital social]<br/>Siège social : Cocody, Abidjan, Côte d'Ivoire<br/>[Numéro d'immatriculation / RCCM ou équivalent]<br/>Email : tambouragency@gmail.com<br/>Téléphone : +225 07 14 50 82 89 (Côte d'Ivoire) / +229 01 97 33 45 89 (Bénin)</p>
+        <p>Tambour Agency<br/>[Forme juridique, capital social]<br/>Siège social : Cocody, Abidjan, Côte d'Ivoire<br/>[Numéro d'immatriculation / RCCM ou équivalent]<br/>Email : tambouragency@gmail.com</p>
         <h3>Directeur de la publication</h3>
         <p>[Nom du directeur de la publication]</p>
         <h3>Hébergement</h3>

@@ -113,7 +113,6 @@ function footer() {
         <div>
           <h4>Siège &amp; contact</h4>
           <div class="footer-contact-item"><span class="fc-ic">${ICONS.pin}</span><span>Cocody, Abidjan, Côte d'Ivoire</span></div>
-          <div class="footer-contact-item"><span class="fc-ic">${ICONS.phone}</span><span><a href="tel:+2250714508289">+225 07 14 50 82 89</a><br/><a href="tel:+2290197334589">+229 01 97 33 45 89</a></span></div>
           <div class="footer-contact-item"><span class="fc-ic">${ICONS.mail}</span><span><a href="mailto:tambouragency@gmail.com">tambouragency@gmail.com</a></span></div>
         </div>
         <div>
